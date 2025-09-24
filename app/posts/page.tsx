@@ -7,7 +7,7 @@ export const revalidate = 300;
 export default async function PostsPage() {
   let posts = await client.queries.postConnection({
     sort: 'date',
-    last: 1
+    first: 1000, // Get a large number to ensure we get all posts
   });
   const allPosts = posts;
 
@@ -15,18 +15,7 @@ export default async function PostsPage() {
     return [];
   }
 
-  while (posts.data?.postConnection.pageInfo.hasPreviousPage) {
-    posts = await client.queries.postConnection({
-      sort: 'date',
-      before: posts.data.postConnection.pageInfo.endCursor,
-    });
-
-    if (!posts.data.postConnection.edges) {
-      break;
-    }
-
-    allPosts.data.postConnection.edges.push(...posts.data.postConnection.edges.reverse());
-  }
+  // Removed the pagination loop since we're getting all at once
 
   return (
     <Layout rawPageData={allPosts.data}>
