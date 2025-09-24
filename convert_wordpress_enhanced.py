@@ -181,7 +181,29 @@ def html_to_markdown_with_images(content):
     # Convert links
     content = re.sub(r'<a[^>]*href="([^"]*)"[^>]*>(.*?)</a>', r'[\2](\1)', content, flags=re.DOTALL)
     
-    # Convert WordPress galleries (handle before general lists)
+    # Convert single WordPress images with captions (handle before galleries)
+    def convert_single_image(match):
+        figure_content = match.group(0)
+        
+        # Extract image src
+        img_match = re.search(r'<img[^>]*src="([^"]*)"[^>]*', figure_content)
+        if not img_match:
+            return figure_content  # Return original if no image found
+        
+        src = img_match.group(1)
+        
+        # Extract caption text
+        caption_match = re.search(r'<figcaption[^>]*>(.*?)</figcaption>', figure_content, flags=re.DOTALL)
+        if caption_match:
+            caption = re.sub(r'<[^>]+>', '', caption_match.group(1)).strip()
+            return f'![{caption}]({src})\n\n'
+        else:
+            return f'![]({src})\n\n'
+    
+    # Handle single WordPress image blocks (wp-block-image) - do this before galleries
+    content = re.sub(r'<figure[^>]*class="[^"]*wp-block-image[^"]*"[^>]*>.*?</figure>', convert_single_image, content, flags=re.DOTALL)
+    
+    # Convert WordPress galleries (handle after single images)
     def convert_gallery(match):
         gallery_content = match.group(0)
         
