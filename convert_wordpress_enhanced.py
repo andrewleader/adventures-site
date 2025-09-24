@@ -287,12 +287,17 @@ def process_wordpress_xml_enhanced():
     items = root.findall('.//item')
     print(f"Found {len(items)} items to process...")
     
-    # First pass: collect all areas to create lookup
+    # First pass: collect all areas and routes to create lookup
     areas_lookup = {}  # id -> slug mapping
+    routes_lookup = {}  # id -> slug mapping
     
     for item in items:
         post_type_elem = item.find('wp:post_type', namespaces)
-        if post_type_elem is None or post_type_elem.text != 'areas':
+        if post_type_elem is None:
+            continue
+            
+        post_type = post_type_elem.text
+        if post_type not in ['areas', 'routes']:
             continue
             
         title_elem = item.find('title')
@@ -301,9 +306,13 @@ def process_wordpress_xml_enhanced():
         if title_elem is not None and post_id_elem is not None:
             post_id = post_id_elem.text
             slug = clean_filename(title_elem.text)
-            areas_lookup[post_id] = slug
+            
+            if post_type == 'areas':
+                areas_lookup[post_id] = slug
+            elif post_type == 'routes':
+                routes_lookup[post_id] = slug
     
-    print(f"Found {len(areas_lookup)} areas for relationship mapping")
+    print(f"Found {len(areas_lookup)} areas and {len(routes_lookup)} routes for relationship mapping")
     
     # Second pass: process all content
     areas = []
@@ -362,16 +371,16 @@ def process_wordpress_xml_enhanced():
             routes.append(route_data)
             
         elif post_type == 'plans':
-            # Map destination IDs to slugs
+            # Map destination IDs to route slugs
             destination_slugs = []
             for dest_id in relationships.get('destinations', []):
-                if dest_id in areas_lookup:
-                    destination_slugs.append(areas_lookup[dest_id])
+                if dest_id in routes_lookup:
+                    destination_slugs.append(routes_lookup[dest_id])
             
             plan_data = {
                 'title': title,
                 'featuredImage': "",
-                'destinations': destination_slugs,  # Now properly mapped!
+                'destinations': destination_slugs,  # Now properly mapped to routes!
                 'content': content,
                 'filename': f"{clean_filename(title)}.mdx"
             }
@@ -418,13 +427,15 @@ def write_enhanced_mdx_file(content_obj, content_type, output_dir):
             
     elif content_type == 'trip-plan':
         if content_obj.get('destinations'):
-            destinations_yaml = '[' + ', '.join([f'content/areas/{d}.mdx' for d in content_obj['destinations']]) + ']'
-            frontmatter.append(f'destinations: {destinations_yaml}')
+            frontmatter.append('destinations:')
+            for d in content_obj['destinations']:
+                frontmatter.append(f'  - route: content/routes/{d}.mdx')
             
     elif content_type == 'trip-report':
         if content_obj.get('destinations'):
-            destinations_yaml = '[' + ', '.join([f'content/areas/{d}.mdx' for d in content_obj['destinations']]) + ']'
-            frontmatter.append(f'destinations: {destinations_yaml}')
+            frontmatter.append('destinations:')
+            for d in content_obj['destinations']:
+                frontmatter.append(f'  - route: content/routes/{d}.mdx')
     
     frontmatter.append('---')
     frontmatter.append('')
