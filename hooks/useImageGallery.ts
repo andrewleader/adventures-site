@@ -16,13 +16,13 @@ export const useImageGallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const detectImages = useCallback(() => {
-    // Find all images in the content area
+    // Find all images in the main article content area only
     const contentSelectors = [
-      '.prose', // Common Tailwind prose class
-      'article',
-      'main',
-      '[data-content]',
-      '.content'
+      '[data-tina-field*="_body"] .prose', // TinaCMS content body with prose styling
+      '[data-tina-field*="body"] .prose',  // Alternative TinaCMS content body
+      '.prose[data-tina-field]',           // Direct prose content from TinaCMS
+      'article .prose',                    // Article content with prose styling
+      'main .prose'                        // Main content with prose styling
     ];
 
     let contentArea: Element | null = null;
@@ -31,9 +31,30 @@ export const useImageGallery = () => {
       if (contentArea) break;
     }
 
-    // Fallback to body if no content area found
+    // Fallback to any prose content, but exclude navigation areas
     if (!contentArea) {
-      contentArea = document.body;
+      const proseElements = document.querySelectorAll('.prose');
+      for (const prose of proseElements) {
+        // Skip prose elements that are likely navigation or UI elements
+        const isNavigation = prose.closest('nav') || 
+                           prose.closest('header') || 
+                           prose.closest('footer') ||
+                           prose.closest('[role="navigation"]') ||
+                           prose.closest('.navigation') ||
+                           prose.closest('.nav') ||
+                           prose.closest('.sidebar');
+        
+        if (!isNavigation) {
+          contentArea = prose;
+          break;
+        }
+      }
+    }
+
+    // If still no content area found, don't initialize gallery
+    if (!contentArea) {
+      console.log('No main content area found for image gallery');
+      return [];
     }
 
     const imageElements = contentArea.querySelectorAll('img');
@@ -47,12 +68,36 @@ export const useImageGallery = () => {
       }
 
       // Skip images with specific classes that indicate UI elements
-      const skipClasses = ['icon', 'avatar', 'logo', 'ui-'];
+      const skipClasses = ['icon', 'avatar', 'logo', 'ui-', 'nav-', 'menu-'];
       const shouldSkip = skipClasses.some(cls => 
         img.className.toLowerCase().includes(cls)
       );
 
       if (shouldSkip) {
+        return;
+      }
+
+      // Skip images that are in navigation or list contexts
+      const isInNavigation = img.closest('nav') || 
+                           img.closest('header') || 
+                           img.closest('footer') ||
+                           img.closest('[role="navigation"]') ||
+                           img.closest('.navigation') ||
+                           img.closest('.nav') ||
+                           img.closest('.sidebar');
+
+      // Skip images in list items that are likely navigation or index pages
+      const isInListNavigation = img.closest('li') && (
+        img.closest('ul[class*="nav"]') ||
+        img.closest('ul[class*="list"]') ||
+        img.closest('ol[class*="nav"]') ||
+        img.closest('ol[class*="list"]') ||
+        img.closest('[class*="grid"]') ||
+        img.closest('[class*="card-grid"]') ||
+        img.closest('[class*="item-list"]')
+      );
+
+      if (isInNavigation || isInListNavigation) {
         return;
       }
 
