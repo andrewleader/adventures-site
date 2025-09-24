@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { format } from 'date-fns';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
 import { PostConnectionQuery, PostConnectionQueryVariables } from '@/tina/__generated__/types';
 import ErrorBoundary from '@/components/error-boundary';
 import { ArrowRight, UserRound } from 'lucide-react';
@@ -76,7 +77,7 @@ export default function PostsClientPage(props: ClientPostProps) {
                       </Link>
                     </h3>
                     <div className="mt-4 text-muted-foreground md:mt-5">
-                      <TinaMarkdown content={post.excerpt} />
+                      <TinaMarkdown content={post.excerpt} components={components} />
                     </div>
                     <div className="mt-6 flex items-center space-x-4 text-sm md:mt-8">
                       <Avatar>

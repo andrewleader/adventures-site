@@ -4,6 +4,7 @@ import { RouteQuery, Route } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
 
 interface RouteClientPageProps {
   data: RouteQuery;
@@ -105,7 +106,7 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {route._body && <TinaMarkdown content={route._body} />}
+        {route._body && <TinaMarkdown content={route._body} components={components} />}
       </div>
 
       {/* Quick Actions */}

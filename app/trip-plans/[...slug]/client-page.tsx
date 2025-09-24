@@ -4,6 +4,7 @@ import { TripPlanQuery, TripPlan } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
 
 interface TripPlanClientPageProps {
   data: TripPlanQuery;
@@ -63,7 +64,7 @@ export default function TripPlanClientPage({ data }: TripPlanClientPageProps) {
       )}
 
       <div className="prose prose-lg max-w-none">
-        {tripPlan._body && <TinaMarkdown content={tripPlan._body} />}
+        {tripPlan._body && <TinaMarkdown content={tripPlan._body} components={components} />}
       </div>
 
       {tripPlan.destinations && tripPlan.destinations.length > 0 && (

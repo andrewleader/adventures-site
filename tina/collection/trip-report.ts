@@ -89,6 +89,37 @@ const TripReport: Collection = {
       label: 'Body',
       name: '_body',
       isBody: true,
+      templates: [
+        {
+          name: 'RouteOverlay',
+          label: 'Route Overlay',
+          fields: [
+            {
+              type: 'string',
+              name: 'imageSrc',
+              label: 'Image URL',
+              required: true,
+            },
+            {
+              type: 'string',
+              name: 'topoData',
+              label: 'Topo Data (JSON)',
+              required: true,
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              type: 'string',
+              name: 'topoOverlaySrc',
+              label: 'Topo Overlay Image (Base64)',
+              ui: {
+                component: 'textarea',
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 };

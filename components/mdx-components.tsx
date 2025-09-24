@@ -6,6 +6,7 @@ import { Prism } from 'tinacms/dist/rich-text/prism';
 import { Video } from './blocks/video';
 import { PageBlocksVideo } from '@/tina/__generated__/types';
 import { Mermaid } from './blocks/mermaid';
+import { RouteOverlay } from './route-overlay';
 
 export const components: Components<{
   BlockQuote: {
@@ -22,6 +23,11 @@ export const components: Components<{
     disclaimer?: TinaMarkdownContent;
   };
   video: PageBlocksVideo;
+  RouteOverlay: {
+    imageSrc: string;
+    topoData?: string;
+    topoOverlaySrc?: string;
+  };
 }> = {
   code_block: (props) => {
     if (!props) {
@@ -112,5 +118,12 @@ export const components: Components<{
   mermaid: (props: any) => <Mermaid {...props} />,
   video: (props) => {
     return <Video data={props} />;
+  },
+  RouteOverlay: (props: {
+    imageSrc: string;
+    topoData?: string;
+    topoOverlaySrc?: string;
+  }) => {
+    return <RouteOverlay {...props} />;
   },
 };

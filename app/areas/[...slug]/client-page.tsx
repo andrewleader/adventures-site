@@ -4,6 +4,7 @@ import { AreaQuery, Area } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
 
 interface AreaClientPageProps {
   data: AreaQuery;
@@ -73,7 +74,7 @@ export default function AreaClientPage({ data, variables, query }: AreaClientPag
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {area._body && <TinaMarkdown content={area._body} />}
+        {area._body && <TinaMarkdown content={area._body} components={components} />}
       </div>
 
       {/* Quick Actions */}
