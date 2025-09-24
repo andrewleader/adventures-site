@@ -1,0 +1,52 @@
+{
+  "header": {
+    "icon": {
+      "name": "Mountain",
+      "color": "green",
+      "style": "float"
+    },
+    "name": "Andrew's Adventures",
+    "color": "default",
+    "nav": [
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "href": "/areas",
+        "label": "Areas"
+      },
+      {
+        "href": "/routes",
+        "label": "Routes"
+      },
+      {
+        "href": "/trip-plans",
+        "label": "Plans"
+      },
+      {
+        "href": "/trip-reports",
+        "label": "Reports"
+      },
+      {
+        "href": "/map",
+        "label": "Map"
+      }
+    ]
+  },
+  "footer": {
+    "social": [
+      {
+        "icon": {
+          "name": "FaGithub"
+        },
+        "url": "https://github.com"
+      }
+    ]
+  },
+  "theme": {
+    "color": "green",
+    "font": "sans",
+    "darkMode": "light"
+  }
+}
