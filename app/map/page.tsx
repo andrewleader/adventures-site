@@ -8,10 +8,12 @@ export default async function MapPage() {
   try {
     let areas = await client.queries.areaConnection({
       sort: 'title',
+      first: 1000  // Fetch up to 1000 areas
     });
     
     let routes = await client.queries.routeConnection({
       sort: 'title',
+      first: 1000  // Fetch up to 1000 routes
     });
 
     return (
