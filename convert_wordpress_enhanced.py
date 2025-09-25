@@ -32,17 +32,45 @@ def extract_coordinates_from_php_array(php_array_str):
     if not php_array_str:
         return None
     
-    # Simple regex to extract lat and lng from the serialized string
-    lat_match = re.search(r's:3:"lat";s:\d+:"([^"]+)"', php_array_str)
-    lng_match = re.search(r's:3:"lng";s:\d+:"([^"]+)"', php_array_str)
+    lat = None
+    lng = None
     
-    if lat_match and lng_match:
+    # Try to extract lat - handle both string and double formats
+    # Format 1: s:3:"lat";s:8:"48.23810" (string)
+    lat_string_match = re.search(r's:3:"lat";s:\d+:"([^"]+)"', php_array_str)
+    # Format 2: s:3:"lat";d:47.531316 (double)
+    lat_double_match = re.search(r's:3:"lat";d:([^;]+)', php_array_str)
+    
+    if lat_string_match:
         try:
-            lat = float(lat_match.group(1))
-            lng = float(lng_match.group(1))
-            return f"{lat}, {lng}"
+            lat = float(lat_string_match.group(1))
         except ValueError:
-            return None
+            pass
+    elif lat_double_match:
+        try:
+            lat = float(lat_double_match.group(1))
+        except ValueError:
+            pass
+    
+    # Try to extract lng - handle both string and double formats  
+    # Format 1: s:3:"lng";s:8:"-120.865" (string)
+    lng_string_match = re.search(r's:3:"lng";s:\d+:"([^"]+)"', php_array_str)
+    # Format 2: s:3:"lng";d:-123.245966 (double)
+    lng_double_match = re.search(r's:3:"lng";d:([^;]+)', php_array_str)
+    
+    if lng_string_match:
+        try:
+            lng = float(lng_string_match.group(1))
+        except ValueError:
+            pass
+    elif lng_double_match:
+        try:
+            lng = float(lng_double_match.group(1))
+        except ValueError:
+            pass
+    
+    if lat is not None and lng is not None:
+        return f"{lat}, {lng}"
     
     return None
 
