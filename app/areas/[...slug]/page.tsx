@@ -3,8 +3,9 @@ import Layout from '@/components/layout/layout';
 import client from '@/tina/__generated__/client';
 import AreaClientPage from './client-page';
 
-export default async function AreaPage({ params }: { params: { slug: string[] } }) {
-  const slug = params.slug.join('/');
+export default async function AreaPage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join('/');
   
   try {
     const [area, routes] = await Promise.all([
