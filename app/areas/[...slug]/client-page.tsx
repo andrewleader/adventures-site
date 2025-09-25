@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { components } from '@/components/mdx-components';
+import { RouteCard } from '@/components/route-card';
 
 interface AreaClientPageProps {
   data: AreaQuery;
@@ -50,23 +51,7 @@ export default function AreaClientPage({ data, variables, query, routesData }: A
     return false;
   });
 
-  const formatRouteGrade = (route: Route) => {
-    const parts = [];
-    
-    if (route.classRating) {
-      parts.push(route.classRating.replace('class', 'Class '));
-    }
-    
-    if (route.ydsRating) {
-      let yds = `5.${route.ydsRating}`;
-      if (route.ydsSubRating) {
-        yds += route.ydsSubRating;
-      }
-      parts.push(yds);
-    }
-    
-    return parts.join(' ');
-  };
+
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">
@@ -131,68 +116,13 @@ export default function AreaClientPage({ data, variables, query, routesData }: A
             {areaRoutes.map((route, index) => {
               if (!route?.node) return null;
               const routeData = route.node as Route;
-              const routeSlug = routeData._sys?.relativePath?.replace('.mdx', '') || '';
               
               return (
-                <Link 
+                <RouteCard 
                   key={index}
-                  href={`/routes/${routeSlug}`}
-                  className="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-gray-300 transition-all"
-                >
-                  {/* Route Featured Image */}
-                  {routeData.featuredImage && (
-                    <div className="aspect-video relative mb-4 rounded-md overflow-hidden">
-                      <Image
-                        src={routeData.featuredImage}
-                        alt={routeData.title || 'Route image'}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-green-600">
-                    {routeData.title}
-                  </h3>
-                  
-                  {/* Route Details */}
-                  <div className="space-y-2 text-sm text-gray-600">
-                    {formatRouteGrade(routeData) && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-gray-400">🧗</span>
-                        <span>{formatRouteGrade(routeData)}</span>
-                      </div>
-                    )}
-                    
-                    {routeData.pitches && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-gray-400">⛰️</span>
-                        <span>{routeData.pitches} pitch{routeData.pitches !== 1 ? 'es' : ''}</span>
-                      </div>
-                    )}
-                    
-                    {routeData.miles && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-gray-400">📏</span>
-                        <span>{routeData.miles} miles</span>
-                      </div>
-                    )}
-                    
-                    {routeData.gain && (
-                      <div className="flex items-center gap-2">
-                        <span className="text-gray-400">⬆️</span>
-                        <span>+{routeData.gain}ft elevation</span>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Route Type Badge */}
-                  <div className="mt-4">
-                    <span className="inline-block px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded">
-                      Route
-                    </span>
-                  </div>
-                </Link>
+                  route={routeData}
+                  size="medium"
+                />
               );
             })}
           </div>

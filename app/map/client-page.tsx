@@ -3,6 +3,7 @@
 import { AreaConnection, RouteConnection, Area, Route } from '@/tina/__generated__/types';
 import { useState, useEffect, useCallback } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { getRouteDifficultyText } from '@/components/route-difficulty';
 
 interface MapClientPageProps {
   areasData: {
@@ -307,11 +308,7 @@ export default function MapClientPage({ areasData, routesData }: MapClientPagePr
                     )}
                     <div className="text-sm text-gray-600 mt-1">
                       {routeData.classRating && (
-                        <span>🧗 {
-                          routeData.classRating === 'class5' && routeData.ydsRating
-                            ? `5.${routeData.ydsRating}${routeData.ydsSubRating || ''}`
-                            : routeData.classRating.replace('class', 'Class ')
-                        }</span>
+                        <span>🧗 {getRouteDifficultyText(routeData)}</span>
                       )}
                       {routeData.miles && (
                         <span className="ml-2">📏 {routeData.miles}mi</span>
@@ -448,10 +445,7 @@ export default function MapClientPage({ areasData, routesData }: MapClientPagePr
                         </span>
                         {selectedLocation.routes[0].classRating && (
                           <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                            {selectedLocation.routes[0].classRating === 'class5' && selectedLocation.routes[0].ydsRating
-                              ? `5.${selectedLocation.routes[0].ydsRating}${selectedLocation.routes[0].ydsSubRating || ''}`
-                              : selectedLocation.routes[0].classRating.replace('class', 'Class ')
-                            }
+                            {getRouteDifficultyText(selectedLocation.routes[0])}
                           </span>
                         )}
                       </div>
@@ -512,9 +506,7 @@ export default function MapClientPage({ areasData, routesData }: MapClientPagePr
                         {selectedLocation.routes && selectedLocation.routes.length > 0 && (
                           <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                             {selectedLocation.type === 'route' 
-                              ? (selectedLocation.routes[0].classRating === 'class5' && selectedLocation.routes[0].ydsRating
-                                  ? `5.${selectedLocation.routes[0].ydsRating}${selectedLocation.routes[0].ydsSubRating || ''}`
-                                  : selectedLocation.routes[0].classRating?.replace('class', 'Class ') || 'Unspecified')
+                              ? getRouteDifficultyText(selectedLocation.routes[0])
                               : `Max: ${getHighestDifficulty(selectedLocation.routes).replace('class', 'Class ') || 'Unspecified'}`
                             }
                           </span>
@@ -604,11 +596,7 @@ export default function MapClientPage({ areasData, routesData }: MapClientPagePr
                 {location.type === 'route' && location.routes && location.routes[0] && (
                   <div className="text-sm text-gray-600 mt-1">
                     {location.routes[0].classRating && (
-                      <span>🧗 {
-                        location.routes[0].classRating === 'class5' && location.routes[0].ydsRating
-                          ? `5.${location.routes[0].ydsRating}${location.routes[0].ydsSubRating || ''}`
-                          : location.routes[0].classRating.replace('class', 'Class ')
-                      }</span>
+                      <span>🧗 {getRouteDifficultyText(location.routes[0])}</span>
                     )}
                     {location.routes[0].miles && (
                       <span className="ml-2">📏 {location.routes[0].miles}mi</span>
@@ -668,11 +656,7 @@ export default function MapClientPage({ areasData, routesData }: MapClientPagePr
                           {routeData.miles && <span>📏 {routeData.miles} mi</span>}
                           {routeData.gain && <span className="ml-3">⬆️ {routeData.gain}ft</span>}
                           {routeData.classRating && (
-                            <span className="ml-3">🧗 {
-                              routeData.classRating === 'class5' && routeData.ydsRating
-                                ? `5.${routeData.ydsRating}${routeData.ydsSubRating || ''}`
-                                : routeData.classRating.replace('class', 'Class ')
-                            }</span>
+                            <span className="ml-3">🧗 {getRouteDifficultyText(routeData)}</span>
                           )}
                         </div>
                       </div>
