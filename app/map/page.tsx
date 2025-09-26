@@ -1,5 +1,5 @@
 import Layout from '@/components/layout/layout';
-import client from '@/tina/__generated__/client';
+import client from '@/lib/static-tina-client';
 import MapClientPage from './client-page';
 
 export const revalidate = 300;

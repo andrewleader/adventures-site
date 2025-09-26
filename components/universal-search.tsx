@@ -77,12 +77,12 @@ export default function UniversalSearch({ className = '' }: UniversalSearchProps
     setIsOpen(true);
 
     try {
-      // Fetch all content types
+      // Fetch all content types from static JSON files
       const [areasRes, routesRes, plansRes, reportsRes] = await Promise.all([
-        fetch('/api/search/areas'),
-        fetch('/api/search/routes'),
-        fetch('/api/search/trip-plans'),
-        fetch('/api/search/trip-reports'),
+        fetch('/api/search/areas.json'),
+        fetch('/api/search/routes.json'),
+        fetch('/api/search/trip-plans.json'),
+        fetch('/api/search/trip-reports.json'),
       ]);
 
       const [areas, routes, plans, reports] = await Promise.all([

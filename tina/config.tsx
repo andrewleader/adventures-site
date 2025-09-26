@@ -29,6 +29,10 @@ const config = defineConfig({
     outputFolder: "admin", // within the public folder
     basePath: nextConfig.basePath?.replace(/^\//, '') || '', // The base path of the app (could be /blog)
   },
+  // For static builds, we can use a filesystem client
+  ...(process.env.NODE_ENV === 'production' && {
+    contentApiUrlOverride: '/api/tina/gql',
+  }),
   schema: {
     collections: [Page, Post, Author, Tag, Area, Route, TripPlan, TripReport, Global],
   },

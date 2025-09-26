@@ -1,5 +1,5 @@
 import React from 'react';
-import client from '@/tina/__generated__/client';
+import client from '@/lib/static-tina-client';
 import Layout from '@/components/layout/layout';
 import PostClientPage from './client-page';
 
@@ -44,7 +44,7 @@ export async function generateStaticParams() {
   }
 
   const params =
-    allPosts.data?.postConnection.edges.map((edge) => ({
+    allPosts.data?.postConnection.edges.map((edge: any) => ({
       urlSegments: edge?.node?._sys.breadcrumbs,
     })) || [];
 

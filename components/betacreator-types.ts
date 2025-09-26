@@ -30,13 +30,13 @@ export interface BetaCreatorData {
   items: BetaCreatorItemData[];
 }
 
-// Global window extension
-declare global {
-  interface Window {
-    BetaCreator: (
-      element: HTMLImageElement,
-      callback: BetaCreatorReadyCallback,
-      options?: BetaCreatorOptions
-    ) => void;
-  }
-}
+// Global window extension - commented out for static build to avoid conflicts
+// declare global {
+//   interface Window {
+//     BetaCreator: (
+//       element: HTMLImageElement,
+//       callback: BetaCreatorReadyCallback,
+//       options?: BetaCreatorOptions
+//     ) => void;
+//   }
+// }

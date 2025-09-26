@@ -1,0 +1,387 @@
+[
+  {
+    "id": "trip-reports\\acid-baby-2024.mdx",
+    "title": "Acid Baby 2024",
+    "slug": "trip-reports\\acid-baby-2024",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\baring-mountain-2016.mdx",
+    "title": "Baring Mountain 2016",
+    "slug": "trip-reports\\baring-mountain-2016",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\birthday-tour-2021.mdx",
+    "title": "Birthday Tour 2021",
+    "slug": "trip-reports\\birthday-tour-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/05/DSC00785.cjUoVxjH-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\blueberry-buttress-2020.mdx",
+    "title": "Blueberry Buttress 2020",
+    "slug": "trip-reports\\blueberry-buttress-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\castleton-tower-north-chimney-2020.mdx",
+    "title": "Castleton Tower - North Chimney - 2020",
+    "slug": "trip-reports\\castleton-tower-north-chimney-2020",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/11/IMG_9975.zUCkdE73.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\cliffed-out-on-martini-bowl.mdx",
+    "title": "Cliffed out on Martini Bowl",
+    "slug": "trip-reports\\cliffed-out-on-martini-bowl",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\condorphamine-addiction-2021.mdx",
+    "title": "Condorphamine Addiction 2021",
+    "slug": "trip-reports\\condorphamine-addiction-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/06/DSC01092.nH3A3ML0-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\coyote-tower-jan-2022.mdx",
+    "title": "Coyote Tower Jan 2022",
+    "slug": "trip-reports\\coyote-tower-jan-2022",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2022/01/DSC02078.J0ErRAPf.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\dr-rubos-wild-ride-jan-2022.mdx",
+    "title": "Dr. Rubo's Wild Ride Jan 2022",
+    "slug": "trip-reports\\dr-rubos-wild-ride-jan-2022",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2022/01/PXL_20220105_203737448.SkRLc86q-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\elephants-perch-mountaineers-route-2020.mdx",
+    "title": "Elephant's Perch - Mountaineer's Route 2020",
+    "slug": "trip-reports\\elephants-perch-mountaineers-route-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\flyboys.mdx",
+    "title": "Flyboys",
+    "slug": "trip-reports\\flyboys",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/06/IMG_20200610_082815-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\frogland-may-2022.mdx",
+    "title": "Frogland May 2022",
+    "slug": "trip-reports\\frogland-may-2022",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2022/03/PXL_20220314_180736693.GZEvv7qs-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\gold-creek-knob-green-run-feb-2021.mdx",
+    "title": "Gold Creek Knob Green Run Feb 2021",
+    "slug": "trip-reports\\gold-creek-knob-green-run-feb-2021",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\guaranteed-rugged-2022.mdx",
+    "title": "Guaranteed Rugged 2022",
+    "slug": "trip-reports\\guaranteed-rugged-2022",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\hex-mountain-backcountry-skiing-dec-2021.mdx",
+    "title": "Hex Mountain Backcountry Skiing Dec 2021",
+    "slug": "trip-reports\\hex-mountain-backcountry-skiing-dec-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/12/PXL_20211219_195619000.TfEtjawf-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\indian-creek-2021.mdx",
+    "title": "Indian Creek 2021",
+    "slug": "trip-reports\\indian-creek-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/10/DSC01178.CCjqZ8lt-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\indian-creek-2023.mdx",
+    "title": "Indian Creek 2023",
+    "slug": "trip-reports\\indian-creek-2023",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2023/10/DSC04182.cIF5G44.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\juniors-farm-2020.mdx",
+    "title": "Junior's Farm 2020",
+    "slug": "trip-reports\\juniors-farm-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\juniors-farm-round-2.mdx",
+    "title": "Junior's Farm round 2!",
+    "slug": "trip-reports\\juniors-farm-round-2",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\la-classique-3182023.mdx",
+    "title": "La Classique 3/18/2023",
+    "slug": "trip-reports\\la-classique-3182023",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2023/03/IMG_4500.mzXWqISJ.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\lexington-east-face-2020.mdx",
+    "title": "Lexington - East Face - 2020",
+    "slug": "trip-reports\\lexington-east-face-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\marvins-ear-2021.mdx",
+    "title": "Marvin's Ear 2021",
+    "slug": "trip-reports\\marvins-ear-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/07/DSC03038.tRWm4ae7-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\mile-high-club-832019.mdx",
+    "title": "Mile High Club 8/3/2019",
+    "slug": "trip-reports\\mile-high-club-832019",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\mile-high-club-and-redlining-attempt-2020.mdx",
+    "title": "Mile High Club (and Redlining attempt) 2020",
+    "slug": "trip-reports\\mile-high-club-and-redlining-attempt-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\moby-dick.mdx",
+    "title": "Moby Dick",
+    "slug": "trip-reports\\moby-dick",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/01/IMG_5250.7lCxW0Cj-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\mysterz-57-9-pitches.mdx",
+    "title": "MysterZ - 5.7, 9 pitches",
+    "slug": "trip-reports\\mysterz-57-9-pitches",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/10/IMG_20191027_114453.slnRMik.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\nirvana-jan-2022.mdx",
+    "title": "Nirvana Jan 2022",
+    "slug": "trip-reports\\nirvana-jan-2022",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2022/01/DSC01939.xqxMZma6.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\no-sweat-arete-5232020.mdx",
+    "title": "No Sweat Arete 5/23/2020",
+    "slug": "trip-reports\\no-sweat-arete-5232020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\northwest-face-of-liberty-bell-and-liberty-traverse-attempt.mdx",
+    "title": "Northwest Face of Liberty Bell and Liberty Traverse attempt",
+    "slug": "trip-reports\\northwest-face-of-liberty-bell-and-liberty-traverse-attempt",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\observation-rock-attempt-2021.mdx",
+    "title": "Observation Rock Attempt 2021",
+    "slug": "trip-reports\\observation-rock-attempt-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/09/PXL_20210912_180144521.Oo4ernvB-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\orbit-2020.mdx",
+    "title": "Orbit 2020",
+    "slug": "trip-reports\\orbit-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\paisano-burgundy-2020.mdx",
+    "title": "Paisano + Burgundy 2020",
+    "slug": "trip-reports\\paisano-burgundy-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\prime-rib-2021.mdx",
+    "title": "Prime Rib 2021",
+    "slug": "trip-reports\\prime-rib-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/05/DSC00912.2Ohw0rS7-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\prusik-peak-2020.mdx",
+    "title": "Prusik Peak 2020",
+    "slug": "trip-reports\\prusik-peak-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\rainier-dc-attempt.mdx",
+    "title": "Rainier - DC Attempt",
+    "slug": "trip-reports\\rainier-dc-attempt",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\shoshone-on-memorial-day.mdx",
+    "title": "Shoshone on Memorial Day",
+    "slug": "trip-reports\\shoshone-on-memorial-day",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/IMG_20200525_131528-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\silent-running-2021.mdx",
+    "title": "Silent Running 2021",
+    "slug": "trip-reports\\silent-running-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/08/DSC03300.m2nJ2P9-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\silver-peak-north-bowl-2021.mdx",
+    "title": "Silver Peak - North Bowl - 2021",
+    "slug": "trip-reports\\silver-peak-north-bowl-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/06/DSC01044.PKsmkMiy-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\snagglepuss-purdie-shuffle-top-cat.mdx",
+    "title": "Snagglepuss + Purdie Shuffle + Top Cat",
+    "slug": "trip-reports\\snagglepuss-purdie-shuffle-top-cat",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2022/08/PXL_20220731_151000046.oTJODm3Z-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\snake-dike-on-half-dome-2024.mdx",
+    "title": "Snake Dike on Half Dome 2024",
+    "slug": "trip-reports\\snake-dike-on-half-dome-2024",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2024/04/IMG_3539.4DKYsFl-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\solitary-man-2022.mdx",
+    "title": "Solitary Man 2022",
+    "slug": "trip-reports\\solitary-man-2022",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\stanley-burgner-2021.mdx",
+    "title": "Stanley-Burgner 2021",
+    "slug": "trip-reports\\stanley-burgner-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/08/DSC09869.QQP7OtwW-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\sydpilaren-2023.mdx",
+    "title": "Sydpilaren 2023",
+    "slug": "trip-reports\\sydpilaren-2023",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2023/08/IMG_8536.GWDXtEHz-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\testing-page.mdx",
+    "title": "Testing page",
+    "slug": "trip-reports\\testing-page",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\the-perfect-crime-2020.mdx",
+    "title": "The Perfect Crime | 2020",
+    "slug": "trip-reports\\the-perfect-crime-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\tooth-and-tooth-fairy-2020.mdx",
+    "title": "Tooth and Tooth Fairy 2020",
+    "slug": "trip-reports\\tooth-and-tooth-fairy-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\total-soul-2022.mdx",
+    "title": "Total Soul 2022",
+    "slug": "trip-reports\\total-soul-2022",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\true-grit-842019.mdx",
+    "title": "True Grit 8/4/2019",
+    "slug": "trip-reports\\true-grit-842019",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\unicorn-peak-2023.mdx",
+    "title": "Unicorn Peak 2023",
+    "slug": "trip-reports\\unicorn-peak-2023",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2023/05/DSC03487-Pano.kL6J8r97-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\utah-2020.mdx",
+    "title": "Utah 2020",
+    "slug": "trip-reports\\utah-2020",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\vesper-peak-ragged-edge-2017.mdx",
+    "title": "Vesper Peak - Ragged Edge - 2017",
+    "slug": "trip-reports\\vesper-peak-ragged-edge-2017",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\void-of-form-dec-2021.mdx",
+    "title": "Void of Form Dec 2021",
+    "slug": "trip-reports\\void-of-form-dec-2021",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\whitehorse-mountain-2021.mdx",
+    "title": "Whitehorse Mountain 2021",
+    "slug": "trip-reports\\whitehorse-mountain-2021",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/05/DSC00741.sk6xmnGw-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\yodelin-feb-2021.mdx",
+    "title": "Yodelin Feb 2021",
+    "slug": "trip-reports\\yodelin-feb-2021",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "trip-reports\\zion-smith-rock.mdx",
+    "title": "Zion (Smith Rock)",
+    "slug": "trip-reports\\zion-smith-rock",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/10/DSC00500-2.E74SyGcA-scaled.jpg",
+    "excerpt": ""
+  }
+]

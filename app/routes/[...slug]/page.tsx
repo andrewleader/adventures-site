@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/layout';
-import client from '@/tina/__generated__/client';
+import client from '@/lib/static-tina-client';
 import RouteClientPage from './client-page';
 
 export default async function RoutePage({ params }: { params: Promise<{ slug: string[] }> }) {
@@ -25,7 +25,7 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
 export async function generateStaticParams() {
   try {
     const routes = await client.queries.routeConnection();
-    return routes.data.routeConnection.edges?.map((route) => ({
+    return routes.data.routeConnection.edges?.map((route: any) => ({
       slug: route?.node?._sys.breadcrumbs || [],
     })) || [];
   } catch {

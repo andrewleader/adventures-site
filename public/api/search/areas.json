@@ -1,0 +1,786 @@
+[
+  {
+    "id": "areas\\7-mile-rock.mdx",
+    "title": "7 Mile Rock",
+    "slug": "areas\\7-mile-rock",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/04/118000773_large_15730658301.fZCFzS1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\amabilis-mountain.mdx",
+    "title": "Amabilis Mountain",
+    "slug": "areas\\amabilis-mountain",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\amphitheater-mountain.mdx",
+    "title": "Amphitheater Mountain",
+    "slug": "areas\\amphitheater-mountain",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\angel-food-wall.mdx",
+    "title": "Angel Food Wall",
+    "slug": "areas\\angel-food-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\bacon-peak.mdx",
+    "title": "Bacon Peak",
+    "slug": "areas\\bacon-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/04/8546571.6vPdJ47v.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\black-velvet-wall.mdx",
+    "title": "Black Velvet Wall",
+    "slug": "areas\\black-velvet-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\bonanza-peak.mdx",
+    "title": "Bonanza Peak",
+    "slug": "areas\\bonanza-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/06/p1ci31oj2v1p3k6ssa991n6619g34q1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\bulletheads-central.mdx",
+    "title": "Bulletheads, Central",
+    "slug": "areas\\bulletheads-central",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\burgundy-spire.mdx",
+    "title": "Burgundy Spire",
+    "slug": "areas\\burgundy-spire",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\cathedral-peak.mdx",
+    "title": "Cathedral Peak",
+    "slug": "areas\\cathedral-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\chimney-rock-idaho.mdx",
+    "title": "Chimney Rock (Idaho)",
+    "slug": "areas\\chimney-rock-idaho",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/08/106876428_large_1494147684.HnGLTzPD.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\cloud-tower.mdx",
+    "title": "Cloud Tower",
+    "slug": "areas\\cloud-tower",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\condor-buttress.mdx",
+    "title": "Condor Buttress",
+    "slug": "areas\\condor-buttress",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\courthouse-butte.mdx",
+    "title": "Courthouse Butte",
+    "slug": "areas\\courthouse-butte",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\cutthroat-peak.mdx",
+    "title": "Cutthroat Peak",
+    "slug": "areas\\cutthroat-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\cutthroat-wall.mdx",
+    "title": "Cutthroat Wall",
+    "slug": "areas\\cutthroat-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\danas-arch.mdx",
+    "title": "Dana's Arch",
+    "slug": "areas\\danas-arch",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\dark-shadows-wall.mdx",
+    "title": "Dark Shadows Wall",
+    "slug": "areas\\dark-shadows-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\devils-peak.mdx",
+    "title": "Devils Peak",
+    "slug": "areas\\devils-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/04/7027701.xsXDXgFK.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\dome-peak.mdx",
+    "title": "Dome Peak",
+    "slug": "areas\\dome-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/267446.N26crqNI.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\dragontail-peak.mdx",
+    "title": "Dragontail Peak",
+    "slug": "areas\\dragontail-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/11722189_10207248380590068_7973150645176449409_o.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\earthship.mdx",
+    "title": "Earthship",
+    "slug": "areas\\earthship",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\east-wilmans-spire.mdx",
+    "title": "East Wilmans Spire",
+    "slug": "areas\\east-wilmans-spire",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/06/Spire1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\el-segundo-buttress.mdx",
+    "title": "El Segundo Buttress",
+    "slug": "areas\\el-segundo-buttress",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\end-pinnacle.mdx",
+    "title": "End Pinnacle",
+    "slug": "areas\\end-pinnacle",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\exfoliation-dome.mdx",
+    "title": "Exfoliation Dome",
+    "slug": "areas\\exfoliation-dome",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/06/p1cenilpn21b2ecbod9gbniv7d4j.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\finger-of-fate.mdx",
+    "title": "Finger of Fate",
+    "slug": "areas\\finger-of-fate",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\gibraltar-rock.mdx",
+    "title": "Gibraltar Rock",
+    "slug": "areas\\gibraltar-rock",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\goat-wall.mdx",
+    "title": "Goat Wall",
+    "slug": "areas\\goat-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\half-dome.mdx",
+    "title": "Half Dome",
+    "slug": "areas\\half-dome",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\hayden-peak.mdx",
+    "title": "Hayden Peak",
+    "slug": "areas\\hayden-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/08/imageproxy.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\heiliger-geist.mdx",
+    "title": "Heiliger Geist",
+    "slug": "areas\\heiliger-geist",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\hibox-mountain.mdx",
+    "title": "Hibox Mountain",
+    "slug": "areas\\hibox-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/11741224_10207206189815325_9058741012958683668_o.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\how-sound-redoubt-wall.mdx",
+    "title": "How Sound Redoubt Wall",
+    "slug": "areas\\how-sound-redoubt-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\icy-peak.mdx",
+    "title": "Icy Peak",
+    "slug": "areas\\icy-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/04/7586341.ZYJKFatA.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\illusion-wall.mdx",
+    "title": "Illusion Wall",
+    "slug": "areas\\illusion-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\inspiration-peak.mdx",
+    "title": "Inspiration Peak",
+    "slug": "areas\\inspiration-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/2053771.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\kyhv-peak.mdx",
+    "title": "Kyhv Peak",
+    "slug": "areas\\kyhv-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\le-petit-cheval.mdx",
+    "title": "Le Petit Cheval",
+    "slug": "areas\\le-petit-cheval",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/06/imag1509_burst0031.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\lexington-tower.mdx",
+    "title": "Lexington Tower",
+    "slug": "areas\\lexington-tower",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\liberty-bell.mdx",
+    "title": "Liberty Bell",
+    "slug": "areas\\liberty-bell",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\little-big-chief-mountain.mdx",
+    "title": "Little Big Chief Mountain",
+    "slug": "areas\\little-big-chief-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/s_r11agecf6270232.jpg.863c05da3fc2f7daab4ddc0ebd420e36.OwZfprbq.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\main-wall-of-lovers-leap.mdx",
+    "title": "Main Wall of Lover's Leap",
+    "slug": "areas\\main-wall-of-lovers-leap",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\manure-pile-buttress.mdx",
+    "title": "Manure Pile Buttress",
+    "slug": "areas\\manure-pile-buttress",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mcloughlin-canyon.mdx",
+    "title": "McLoughlin Canyon",
+    "slug": "areas\\mcloughlin-canyon",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/05/c5b5c27d-1f95-45ba-bd92-200b9b79f75d.1ZZUC2V.jpeg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\middle-cathedral-rock.mdx",
+    "title": "Middle Cathedral Rock",
+    "slug": "areas\\middle-cathedral-rock",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mongegjura-norway.mdx",
+    "title": "Mongegjura (Norway)",
+    "slug": "areas\\mongegjura-norway",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mormon-canyon.mdx",
+    "title": "Mormon Canyon",
+    "slug": "areas\\mormon-canyon",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\morning-star-peak.mdx",
+    "title": "Morning Star Peak",
+    "slug": "areas\\morning-star-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\moses.mdx",
+    "title": "Moses",
+    "slug": "areas\\moses",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-berge.mdx",
+    "title": "Mount Berge",
+    "slug": "areas\\mount-berge",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-constance.mdx",
+    "title": "Mount Constance",
+    "slug": "areas\\mount-constance",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/779310.hIlAA6oU.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-index.mdx",
+    "title": "Mount Index",
+    "slug": "areas\\mount-index",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/imageproxy.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-maude.mdx",
+    "title": "Mount Maude",
+    "slug": "areas\\mount-maude",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-rainier.mdx",
+    "title": "Mount Rainier National Park",
+    "slug": "areas\\mount-rainier",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-thomson.mdx",
+    "title": "Mount Thomson",
+    "slug": "areas\\mount-thomson",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-triumph.mdx",
+    "title": "Mount Triumph",
+    "slug": "areas\\mount-triumph",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/1200px-Mount_Triumph_259111.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mount-washington.mdx",
+    "title": "Mount Washington",
+    "slug": "areas\\mount-washington",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mt-habrich.mdx",
+    "title": "Mt Habrich",
+    "slug": "areas\\mt-habrich",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\mythic-peak.mdx",
+    "title": "Mythic Peak",
+    "slug": "areas\\mythic-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\news-north-early-winter-spire.mdx",
+    "title": "NEWS (North Early Winter Spire)",
+    "slug": "areas\\news-north-early-winter-spire",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\nirvana-buttress.mdx",
+    "title": "Nirvana Buttress",
+    "slug": "areas\\nirvana-buttress",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\no-sweat.mdx",
+    "title": "No Sweat",
+    "slug": "areas\\no-sweat",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\nooksack-tower.mdx",
+    "title": "Nooksack Tower",
+    "slug": "areas\\nooksack-tower",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\norse-peak.mdx",
+    "title": "Norse Peak",
+    "slug": "areas\\norse-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\north-cascades.mdx",
+    "title": "North Cascades National Park",
+    "slug": "areas\\north-cascades",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\north-face-tiffany-mountain.mdx",
+    "title": "North Face Tiffany Mountain",
+    "slug": "areas\\north-face-tiffany-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/06/110613484_large_1494341387_topo1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\ojibway-peak.mdx",
+    "title": "Ojibway Peak",
+    "slug": "areas\\ojibway-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\paisano-pinnacle.mdx",
+    "title": "Paisano Pinnacle",
+    "slug": "areas\\paisano-pinnacle",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\pilier-du-couchant.mdx",
+    "title": "Pilier du Couchant",
+    "slug": "areas\\pilier-du-couchant",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\pingora.mdx",
+    "title": "Pingora",
+    "slug": "areas\\pingora",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\pontatoc-ridge.mdx",
+    "title": "Pontatoc Ridge",
+    "slug": "areas\\pontatoc-ridge",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\porcupine-creek-wall.mdx",
+    "title": "Porcupine Creek Wall",
+    "slug": "areas\\porcupine-creek-wall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\prusik-peak.mdx",
+    "title": "Prusik Peak",
+    "slug": "areas\\prusik-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/08/113576155_large_1505174748.YNqoPGml.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\psom-slab.mdx",
+    "title": "PSOM Slab",
+    "slug": "areas\\psom-slab",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\queen-victoria.mdx",
+    "title": "Queen Victoria",
+    "slug": "areas\\queen-victoria",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\red-mountain.mdx",
+    "title": "Red Mountain",
+    "slug": "areas\\red-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/208226.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\ruby-mountain.mdx",
+    "title": "Ruby Mountain",
+    "slug": "areas\\ruby-mountain",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\salami-slabs.mdx",
+    "title": "Salami Slabs",
+    "slug": "areas\\salami-slabs",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\salish-peak.mdx",
+    "title": "Salish Peak",
+    "slug": "areas\\salish-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/35844045633_ea6e68e348_o1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\sews.mdx",
+    "title": "SEWS",
+    "slug": "areas\\sews",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/06/p1ddgeohtum8bt2a1dukdesoeib7.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\sherpa-peak.mdx",
+    "title": "Sherpa Peak",
+    "slug": "areas\\sherpa-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/27898274386_b03021c93e_b1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\shoshone-spire.mdx",
+    "title": "Shoshone Spire",
+    "slug": "areas\\shoshone-spire",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/IMG_20200525_161154-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\silver-peak.mdx",
+    "title": "Silver Peak",
+    "slug": "areas\\silver-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\sky-pilot-mountain.mdx",
+    "title": "Sky Pilot Mountain",
+    "slug": "areas\\sky-pilot-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/Sky-Pilot-Mt-From-Sea-to-Sky-Gondola-Squamish1.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\slick-rock.mdx",
+    "title": "Slick Rock",
+    "slug": "areas\\slick-rock",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2021/08/108367206_large_1494279005.zgfxbT8j.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\snow-creek-wall.mdx",
+    "title": "Snow Creek Wall",
+    "slug": "areas\\snow-creek-wall",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/06/114320899_large_15251427411.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\south-face.mdx",
+    "title": "South Face",
+    "slug": "areas\\south-face",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\south-mesa.mdx",
+    "title": "South Mesa",
+    "slug": "areas\\south-mesa",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\spearhead.mdx",
+    "title": "Spearhead",
+    "slug": "areas\\spearhead",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\spire-point.mdx",
+    "title": "Spire Point",
+    "slug": "areas\\spire-point",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/812296.WQvUtxt.jpeg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\steeple-rock.mdx",
+    "title": "Steeple Rock",
+    "slug": "areas\\steeple-rock",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/413277.ooPdgPQO.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\summit-block-rock.mdx",
+    "title": "Summit Block Rock",
+    "slug": "areas\\summit-block-rock",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\super-crack-tower.mdx",
+    "title": "Super Crack Tower",
+    "slug": "areas\\super-crack-tower",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\the-apron.mdx",
+    "title": "The Apron",
+    "slug": "areas\\the-apron",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\the-sheepshead.mdx",
+    "title": "The Sheepshead",
+    "slug": "areas\\the-sheepshead",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\the-sheriffs-badge.mdx",
+    "title": "The Sheriff's Badge",
+    "slug": "areas\\the-sheriffs-badge",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\the-tooth.mdx",
+    "title": "The Tooth",
+    "slug": "areas\\the-tooth",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/05/106378887_large_14941031971.wYsp6RAB.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\three-hour-buttress.mdx",
+    "title": "Three Hour Buttress",
+    "slug": "areas\\three-hour-buttress",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\three-o-clock-rock.mdx",
+    "title": "Three O-clock Rock",
+    "slug": "areas\\three-o-clock-rock",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\tinkham-peak.mdx",
+    "title": "Tinkham Peak",
+    "slug": "areas\\tinkham-peak",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/IMG_1486.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\tower-mountain.mdx",
+    "title": "Tower Mountain",
+    "slug": "areas\\tower-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/06/IMG_20200625_141049-scaled.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\unicorn-peak.mdx",
+    "title": "Unicorn Peak",
+    "slug": "areas\\unicorn-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\upper-cathedral-lake.mdx",
+    "title": "Upper Cathedral Lake",
+    "slug": "areas\\upper-cathedral-lake",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/08/28595848511_cb95c202c8_b1.QSAPrQg5.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\upper-headwall.mdx",
+    "title": "Upper Headwall",
+    "slug": "areas\\upper-headwall",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\valhalla.mdx",
+    "title": "Valhalla",
+    "slug": "areas\\valhalla",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\vesper-peak.mdx",
+    "title": "Vesper Peak",
+    "slug": "areas\\vesper-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\west-mcmillan-spire.mdx",
+    "title": "West McMillan Spire",
+    "slug": "areas\\west-mcmillan-spire",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2019/07/p1cenofa9o10rt19631rt01aj817b941.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\whale-dome.mdx",
+    "title": "Whale Dome",
+    "slug": "areas\\whale-dome",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\whiskey-peak-north-face.mdx",
+    "title": "Whiskey Peak North Face",
+    "slug": "areas\\whiskey-peak-north-face",
+    "featuredImage": "",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\winchester-mountain.mdx",
+    "title": "Winchester Mountain",
+    "slug": "areas\\winchester-mountain",
+    "featuredImage": "https://andrewbares.blob.core.windows.net/hiking-blog-images/2020/03/Image-15-March-2018-1119-PM.1MWg4Qz8.jpg",
+    "excerpt": ""
+  },
+  {
+    "id": "areas\\yak-peak.mdx",
+    "title": "Yak Peak",
+    "slug": "areas\\yak-peak",
+    "featuredImage": "",
+    "excerpt": ""
+  }
+]

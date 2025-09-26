@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import client from '@/tina/__generated__/client';
+import client from '@/lib/static-tina-client';
 import Layout from '@/components/layout/layout';
 import { Section } from '@/components/layout/section';
 import ClientPage from './client-page';
@@ -54,11 +54,11 @@ export async function generateStaticParams() {
   }
 
   const params = allPages.data?.pageConnection.edges
-    .map((edge) => ({
-      urlSegments: edge?.node?._sys.breadcrumbs || [],
-    }))
-    .filter((x) => x.urlSegments.length >= 1)
-    .filter((x) => !x.urlSegments.every((x) => x === 'home')); // exclude the home page
-
+  .map((edge: any) => ({
+    urlSegments: edge?.node?._sys.breadcrumbs || [],
+  }))
+  .filter((x: any) => x.urlSegments.length >= 1)
+  .filter((x: any) => !x.urlSegments.every((x: any) => x === 'home')); // exclude the home page
+  
   return params;
 }

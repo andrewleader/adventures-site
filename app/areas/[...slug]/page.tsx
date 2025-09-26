@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Layout from '@/components/layout/layout';
-import client from '@/tina/__generated__/client';
+import client from '@/lib/static-tina-client';
 import AreaClientPage from './client-page';
 
 export default async function AreaPage({ params }: { params: Promise<{ slug: string[] }> }) {
@@ -30,7 +30,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
 export async function generateStaticParams() {
   try {
     const areas = await client.queries.areaConnection();
-    return areas.data.areaConnection.edges?.map((area) => ({
+    return areas.data.areaConnection.edges?.map((area: any) => ({
       slug: area?.node?._sys.breadcrumbs || [],
     })) || [];
   } catch {
