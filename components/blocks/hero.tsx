@@ -42,6 +42,9 @@ const transitionVariants = {
 };
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
+  // Check if we have a background image
+  const hasBackgroundImage = data.image?.src && !data.image?.videoUrl;
+  
   // Extract the background style logic into a more readable format
   let gradientStyle: React.CSSProperties | undefined = undefined;
   if (data.background) {
@@ -57,6 +60,74 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     } as React.CSSProperties;
   }
 
+  if (hasBackgroundImage) {
+    // Hero with background image
+    return (
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${data.image!.src})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Dark overlay for text visibility */}
+        <div className="absolute inset-0 z-10 bg-black/40" />
+        
+        {/* Content */}
+        <div className="relative z-20 mx-auto max-w-7xl px-6 text-center text-white">
+          <div className='sm:mx-auto lg:mr-auto lg:mt-0'>
+            {data.headline && (
+              <div data-tina-field={tinaField(data, 'headline')}>
+                <TextEffect 
+                  preset='fade-in-blur' 
+                  speedSegment={0.3} 
+                  as='h1' 
+                  className='mt-8 text-balance text-6xl md:text-7xl xl:text-[5.25rem] text-white drop-shadow-lg'
+                >
+                  {data.headline!}
+                </TextEffect>
+              </div>
+            )}
+            {data.tagline && (
+              <div data-tina-field={tinaField(data, 'tagline')}>
+                <TextEffect 
+                  per='line' 
+                  preset='fade-in-blur' 
+                  speedSegment={0.3} 
+                  delay={0.5} 
+                  as='p' 
+                  className='mx-auto mt-8 max-w-2xl text-balance text-lg text-white/90 drop-shadow-md'
+                >
+                  {data.tagline!}
+                </TextEffect>
+              </div>
+            )}
+
+            <AnimatedGroup variants={transitionVariants} className='mt-12 flex flex-col items-center justify-center gap-2 md:flex-row'>
+              {data.actions &&
+                data.actions.map((action) => (
+                  <div key={action!.label} data-tina-field={tinaField(action)} className='bg-white/10 backdrop-blur-sm rounded-[calc(var(--radius-xl)+0.125rem)] border border-white/20 p-0.5'>
+                    <Button asChild size='lg' variant={action!.type === 'link' ? 'ghost' : 'default'} className='rounded-xl px-5 text-base bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20'>
+                      <Link href={action!.link!}>
+                        {action?.icon && <Icon data={action?.icon} />}
+                        <span className='text-nowrap'>{action!.label}</span>
+                      </Link>
+                    </Button>
+                  </div>
+                ))}
+            </AnimatedGroup>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Original hero layout for non-background images
   return (
     <Section background={data.background!}>
       <div className='text-center sm:mx-auto lg:mr-auto lg:mt-0'>
