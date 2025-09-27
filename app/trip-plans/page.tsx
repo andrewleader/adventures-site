@@ -7,8 +7,8 @@ export const revalidate = 300;
 export default async function TripPlansPage() {
   try {
     let tripPlans = await client.queries.tripPlanConnection({
-      sort: 'startDate',
-      last: 1
+      sort: 'title',
+      first: 1000, // Get a large number to ensure we get all trip plans
     });
     const allTripPlans = tripPlans;
 
@@ -23,22 +23,11 @@ export default async function TripPlansPage() {
       );
     }
 
-    while (tripPlans.data?.tripPlanConnection.pageInfo.hasPreviousPage) {
-      tripPlans = await client.queries.tripPlanConnection({
-        sort: 'startDate',
-        before: tripPlans.data.tripPlanConnection.pageInfo.endCursor,
-      });
-
-      if (!tripPlans.data.tripPlanConnection.edges) {
-        break;
-      }
-
-      allTripPlans.data.tripPlanConnection.edges.push(...tripPlans.data.tripPlanConnection.edges.reverse());
-    }
+    // Removed the pagination loop since we're getting all at once
 
     return (
       <Layout rawPageData={allTripPlans.data}>
-        <TripPlansClientPage {...allTripPlans} />
+        <TripPlansClientPage data={allTripPlans.data as any} />
       </Layout>
     );
   } catch (error) {

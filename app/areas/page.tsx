@@ -8,7 +8,7 @@ export default async function AreasPage() {
   try {
     let areas = await client.queries.areaConnection({
       sort: 'title',
-      last: 1
+      first: 1000, // Get a large number to ensure we get all areas
     });
     const allAreas = areas;
 
@@ -23,18 +23,7 @@ export default async function AreasPage() {
       );
     }
 
-    while (areas.data?.areaConnection.pageInfo.hasPreviousPage) {
-      areas = await client.queries.areaConnection({
-        sort: 'title',
-        before: areas.data.areaConnection.pageInfo.endCursor,
-      });
-
-      if (!areas.data.areaConnection.edges) {
-        break;
-      }
-
-      allAreas.data.areaConnection.edges.push(...areas.data.areaConnection.edges.reverse());
-    }
+    // Removed the pagination loop since we're getting all at once
 
     return (
       <Layout rawPageData={allAreas.data}>

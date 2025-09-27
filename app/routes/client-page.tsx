@@ -1,9 +1,8 @@
 'use client';
 
 import { Route, RouteConnection } from '@/tina/__generated__/types';
-import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
+import { RouteCard } from '@/components/route-card';
 
 interface RoutesClientPageProps {
   data: {
@@ -25,20 +24,7 @@ export default function RoutesClientPage({ data }: RoutesClientPageProps) {
     return matchesSearch && matchesClass;
   });
 
-  const formatDifficulty = (route: Route) => {
-    const parts = [];
-    if (route.classRating) {
-      parts.push(route.classRating.replace('class', 'Class '));
-    }
-    if (route.classRating === 'class5' && route.ydsRating) {
-      let yds = route.ydsRating;
-      if (route.ydsSubRating && route.ydsSubRating !== 'none') {
-        yds += route.ydsSubRating;
-      }
-      parts.push(`(${yds})`);
-    }
-    return parts.join(' ');
-  };
+
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -73,54 +59,13 @@ export default function RoutesClientPage({ data }: RoutesClientPageProps) {
           if (!route?.node) return null;
           
           const routeData = route.node as Route;
-          const slug = route.node._sys?.filename || `route-${index}`;
           
           return (
-            <Link
-              key={slug}
-              href={`/routes/${slug}`}
-              className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-            >
-              {routeData.featuredImage && (
-                <div className="aspect-video relative">
-                  <Image
-                    src={routeData.featuredImage}
-                    alt={routeData.title || 'Route image'}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              )}
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-green-600 transition-colors">
-                  {routeData.title}
-                </h3>
-                
-                <div className="space-y-1 text-sm text-gray-600 mb-3">
-                  {routeData.miles && (
-                    <p>📏 {routeData.miles} miles</p>
-                  )}
-                  {routeData.gain && (
-                    <p>⬆️ {routeData.gain.toLocaleString()}ft gain</p>
-                  )}
-                  {routeData.highestElevation && (
-                    <p>🏔️ {routeData.highestElevation.toLocaleString()}ft max</p>
-                  )}
-                  {routeData.classRating && (
-                    <p className="font-medium text-orange-600">
-                      🧗 {formatDifficulty(routeData)}
-                    </p>
-                  )}
-                </div>
-                
-                {routeData.parentArea && typeof routeData.parentArea === 'object' && routeData.parentArea.title && (
-                  <p className="text-blue-600 text-sm">
-                    📍 Area: {routeData.parentArea.title}
-                  </p>
-                )}
-              </div>
-            </Link>
+            <RouteCard 
+              key={route.node._sys?.filename || `route-${index}`}
+              route={routeData}
+              size="large"
+            />
           );
         })}
       </div>

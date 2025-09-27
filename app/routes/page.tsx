@@ -8,7 +8,7 @@ export default async function RoutesPage() {
   try {
     let routes = await client.queries.routeConnection({
       sort: 'title',
-      last: 1
+      first: 1000, // Get a large number to ensure we get all routes
     });
     const allRoutes = routes;
 
@@ -23,18 +23,7 @@ export default async function RoutesPage() {
       );
     }
 
-    while (routes.data?.routeConnection.pageInfo.hasPreviousPage) {
-      routes = await client.queries.routeConnection({
-        sort: 'title',
-        before: routes.data.routeConnection.pageInfo.endCursor,
-      });
-
-      if (!routes.data.routeConnection.edges) {
-        break;
-      }
-
-      allRoutes.data.routeConnection.edges.push(...routes.data.routeConnection.edges.reverse());
-    }
+    // Removed the pagination loop since we're getting all at once
 
     return (
       <Layout rawPageData={allRoutes.data}>

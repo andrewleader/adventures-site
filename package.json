@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev --turbopack\"",
-    "build": "tinacms build && next build",
-    "build-local": "tinacms build --local --skip-indexing --skip-cloud-checks && next build",
-    "start": "tinacms build && next start",
+    "dev": "npm run build:betacreator && tinacms dev -c \"next dev --turbopack\"",
+    "build": "npm run build:betacreator && tinacms build && next build",
+    "build-local": "npm run build:betacreator && tinacms build --local --skip-indexing --skip-cloud-checks && next build",
+    "start": "npm run build:betacreator && tinacms build && next start",
     "export": "npm run build && next export",
     "lint": "biome lint",
-    "dev:build": "next build"
+    "dev:build": "npm run build:betacreator && next build",
+    "build:betacreator": "cd betacreator && npm run bundle:betacreator"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -29,11 +30,13 @@
     "@headlessui/react": "^2.2.7",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-slot": "^1.2.3",
+    "@react-google-maps/api": "^2.20.7",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "dotenv": "^17.2.2",
     "lucide-react": "^0.484.0",
     "mermaid": "^11.10.1",
     "motion": "^12.23.12",

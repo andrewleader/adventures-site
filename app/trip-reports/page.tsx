@@ -7,8 +7,8 @@ export const revalidate = 300;
 export default async function TripReportsPage() {
   try {
     let tripReports = await client.queries.tripReportConnection({
-      sort: 'startDate',
-      last: 1
+      sort: 'title',
+      first: 1000, // Get a large number to ensure we get all trip reports
     });
     const allTripReports = tripReports;
 
@@ -23,22 +23,9 @@ export default async function TripReportsPage() {
       );
     }
 
-    while (tripReports.data?.tripReportConnection.pageInfo.hasPreviousPage) {
-      tripReports = await client.queries.tripReportConnection({
-        sort: 'startDate',
-        before: tripReports.data.tripReportConnection.pageInfo.endCursor,
-      });
-
-      if (!tripReports.data.tripReportConnection.edges) {
-        break;
-      }
-
-      allTripReports.data.tripReportConnection.edges.push(...tripReports.data.tripReportConnection.edges.reverse());
-    }
-
     return (
       <Layout rawPageData={allTripReports.data}>
-        <TripReportsClientPage {...allTripReports} />
+        <TripReportsClientPage data={allTripReports.data as any} />
       </Layout>
     );
   } catch (error) {

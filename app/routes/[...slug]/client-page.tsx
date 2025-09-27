@@ -4,6 +4,8 @@ import { RouteQuery, Route } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
+import { getRouteDifficultyText } from '@/components/route-difficulty';
 
 interface RouteClientPageProps {
   data: RouteQuery;
@@ -16,20 +18,7 @@ interface RouteClientPageProps {
 export default function RouteClientPage({ data, variables, query }: RouteClientPageProps) {
   const route = data.route as Route;
 
-  const formatDifficulty = () => {
-    const parts = [];
-    if (route.classRating) {
-      parts.push(route.classRating.replace('class', 'Class '));
-    }
-    if (route.classRating === 'class5' && route.ydsRating) {
-      let yds = route.ydsRating;
-      if (route.ydsSubRating && route.ydsSubRating !== 'none') {
-        yds += route.ydsSubRating;
-      }
-      parts.push(`(${yds})`);
-    }
-    return parts.join(' ');
-  };
+
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">
@@ -65,7 +54,7 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
           )}
           {route.classRating && (
             <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600">{formatDifficulty()}</div>
+              <div className="text-2xl font-bold text-orange-500">{getRouteDifficultyText(route)}</div>
               <div className="text-sm text-gray-600">Difficulty</div>
             </div>
           )}
@@ -105,7 +94,7 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {route._body && <TinaMarkdown content={route._body} />}
+        {route._body && <TinaMarkdown content={route._body} components={components} />}
       </div>
 
       {/* Quick Actions */}
@@ -139,7 +128,7 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
               href={route.mountainForecastUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition-colors"
             >
               🌤️ Weather Forecast
             </a>

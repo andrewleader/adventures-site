@@ -3,17 +3,23 @@ import Layout from '@/components/layout/layout';
 import client from '@/tina/__generated__/client';
 import AreaClientPage from './client-page';
 
-export default async function AreaPage({ params }: { params: { slug: string[] } }) {
-  const slug = params.slug.join('/');
+export default async function AreaPage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join('/');
   
   try {
-    const area = await client.queries.area({
-      relativePath: `${slug}.mdx`,
-    });
+    const [area, routes] = await Promise.all([
+      client.queries.area({
+        relativePath: `${slug}.mdx`,
+      }),
+      client.queries.routeConnection({
+        first: 1000  // Fetch up to 1000 routes instead of the default 50
+      })
+    ]);
 
     return (
       <Layout rawPageData={area.data}>
-        <AreaClientPage {...area} />
+        <AreaClientPage {...area} routesData={routes.data} />
       </Layout>
     );
   } catch (error) {

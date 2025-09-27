@@ -1,9 +1,11 @@
 'use client';
 
-import { AreaQuery, Area } from '@/tina/__generated__/types';
+import { AreaQuery, Area, RouteConnection, Route } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
+import { RouteCard } from '@/components/route-card';
 
 interface AreaClientPageProps {
   data: AreaQuery;
@@ -11,10 +13,14 @@ interface AreaClientPageProps {
     relativePath: string;
   };
   query: string;
+  routesData: {
+    routeConnection: RouteConnection;
+  };
 }
 
-export default function AreaClientPage({ data, variables, query }: AreaClientPageProps) {
+export default function AreaClientPage({ data, variables, query, routesData }: AreaClientPageProps) {
   const area = data.area as Area;
+  const routes = routesData.routeConnection.edges || [];
 
   const parseCoordinates = (coordString: string | null | undefined) => {
     if (!coordString) return null;
@@ -26,6 +32,26 @@ export default function AreaClientPage({ data, variables, query }: AreaClientPag
   };
 
   const coords = parseCoordinates(area.summitCoords);
+
+  // Get routes that belong to this area
+  const areaRoutes = routes.filter(route => {
+    if (!route?.node) return false;
+    const routeData = route.node as Route;
+    
+    // Check if parentArea matches this area's file path
+    const currentAreaPath = `content/areas/${variables.relativePath}`;
+    
+    // parentArea can be a string reference or an Area object
+    if (typeof routeData.parentArea === 'string') {
+      return routeData.parentArea === currentAreaPath;
+    } else if (routeData.parentArea && typeof routeData.parentArea === 'object') {
+      return routeData.parentArea._sys?.relativePath === variables.relativePath;
+    }
+    
+    return false;
+  });
+
+
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">
@@ -73,8 +99,43 @@ export default function AreaClientPage({ data, variables, query }: AreaClientPag
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {area._body && <TinaMarkdown content={area._body} />}
+        {area._body && <TinaMarkdown content={area._body} components={components} />}
       </div>
+
+      {/* Routes in this Area */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold mb-6">
+          Routes in {area.title}
+          <span className="text-lg font-normal text-gray-600 ml-2">
+            ({areaRoutes.length})
+          </span>
+        </h2>
+        
+        {areaRoutes.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {areaRoutes.map((route, index) => {
+              if (!route?.node) return null;
+              const routeData = route.node as Route;
+              
+              return (
+                <RouteCard 
+                  key={index}
+                  route={routeData}
+                  size="medium"
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-gray-50 rounded-lg">
+            <div className="text-gray-400 text-4xl mb-4">🏔️</div>
+            <p className="text-gray-600">No routes found for this area.</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Routes may be listed under different areas or not yet documented.
+            </p>
+          </div>
+        )}
+      </section>
 
       {/* Quick Actions */}
       <div className="mt-12 p-6 bg-gray-50 rounded-lg">
@@ -86,6 +147,15 @@ export default function AreaClientPage({ data, variables, query }: AreaClientPag
           >
             View All Routes
           </Link>
+          
+          {areaRoutes.length > 0 && (
+            <Link 
+              href="/map"
+              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              View on Map ({areaRoutes.length} route{areaRoutes.length !== 1 ? 's' : ''})
+            </Link>
+          )}
           
           {coords && (
             <a
@@ -103,7 +173,7 @@ export default function AreaClientPage({ data, variables, query }: AreaClientPag
               href={area.mountainForecastUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-700 transition-colors"
             >
               Check Weather
             </a>

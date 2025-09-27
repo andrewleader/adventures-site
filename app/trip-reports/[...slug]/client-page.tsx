@@ -4,6 +4,7 @@ import { TripReportQuery, TripReport } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { components } from '@/components/mdx-components';
 
 interface TripReportClientPageProps {
   data: TripReportQuery;
@@ -74,7 +75,7 @@ export default function TripReportClientPage({ data }: TripReportClientPageProps
       )}
 
       <div className="prose prose-lg max-w-none">
-        {tripReport._body && <TinaMarkdown content={tripReport._body} />}
+        {tripReport._body && <TinaMarkdown content={tripReport._body} components={components} />}
       </div>
 
       {tripReport.destinations && tripReport.destinations.length > 0 && (

@@ -116,6 +116,12 @@ const Route: Collection = {
     },
     {
       type: 'string',
+      label: 'Summit Coordinates',
+      name: 'summitCoords',
+      description: 'Latitude, longitude coordinates for route summit (e.g. "47.447334, -120.992787")',
+    },
+    {
+      type: 'string',
       label: 'CalTopo URL',
       name: 'calTopoUrl',
       description: 'Link to CalTopo map',
@@ -137,6 +143,37 @@ const Route: Collection = {
       label: 'Body',
       name: '_body',
       isBody: true,
+      templates: [
+        {
+          name: 'RouteOverlay',
+          label: 'Route Overlay',
+          fields: [
+            {
+              type: 'string',
+              name: 'imageSrc',
+              label: 'Image URL',
+              required: true,
+            },
+            {
+              type: 'string',
+              name: 'topoData',
+              label: 'Topo Data (JSON)',
+              required: true,
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              type: 'string',
+              name: 'topoOverlaySrc',
+              label: 'Topo Overlay Image (Base64)',
+              ui: {
+                component: 'textarea',
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 };
