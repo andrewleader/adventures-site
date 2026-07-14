@@ -45,8 +45,29 @@ export default function TripPlanClientPage({ data }: TripPlanClientPageProps) {
           {tripPlan.endDate && (
             <span>📅 End: {formatDate(tripPlan.endDate)}</span>
           )}
-          {tripPlan.destinations && (
-            <span>📍 {tripPlan.destinations.length} destination{tripPlan.destinations.length > 1 ? 's' : ''}</span>
+          {tripPlan.destinations && tripPlan.destinations.length > 0 && (
+            <span>
+              📍{' '}
+              {tripPlan.destinations.map((dest, index) => {
+                const route = dest?.route;
+                const title = typeof route === 'object' && route?.title ? route.title : null;
+                const slug = typeof route === 'object' && route?._sys?.breadcrumbs
+                  ? (route._sys.breadcrumbs as string[]).join('/')
+                  : null;
+                return (
+                  <span key={index}>
+                    {index > 0 && ', '}
+                    {title && slug ? (
+                      <Link href={`/routes/${slug}`} className="text-green-600 hover:text-green-700 hover:underline">
+                        {title}
+                      </Link>
+                    ) : (
+                      title || 'Unknown'
+                    )}
+                  </span>
+                );
+              })}
+            </span>
           )}
         </div>
       </header>
@@ -67,27 +88,6 @@ export default function TripPlanClientPage({ data }: TripPlanClientPageProps) {
       <div className="prose prose-lg max-w-none">
         {tripPlan._body && <TinaMarkdown content={groupAdjacentImages(tripPlan._body)} components={components} />}
       </div>
-
-      {tripPlan.destinations && tripPlan.destinations.length > 0 && (
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4">Planned Destinations</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            {tripPlan.destinations.map((dest, index) => {
-              if (!dest) return null;
-              
-              return (
-                <div key={index} className="p-4 bg-white rounded-lg border">
-                  <h4 className="font-semibold">
-                    {typeof dest.route === 'object' && dest.route?.title 
-                      ? dest.route.title 
-                      : 'Route'}
-                  </h4>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
     </article>
   );
 }
