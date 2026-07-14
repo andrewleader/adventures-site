@@ -76,12 +76,43 @@ query tripReportListConnection($sort: String, $first: Float, $filter: TripReport
           route {
             ... on Route {
               title
+              _sys {
+                relativePath
+              }
             }
           }
         }
         tripPlan {
           ... on TripPlan {
             title
+          }
+        }
+        _sys {
+          filename
+          basename
+        }
+      }
+    }
+  }
+}
+
+query tripPlanListConnection($sort: String, $first: Float, $filter: TripPlanFilter) {
+  tripPlanConnection(sort: $sort, first: $first, filter: $filter) {
+    edges {
+      node {
+        id
+        title
+        featuredImage
+        startDate
+        endDate
+        destinations {
+          route {
+            ... on Route {
+              title
+              _sys {
+                relativePath
+              }
+            }
           }
         }
         _sys {

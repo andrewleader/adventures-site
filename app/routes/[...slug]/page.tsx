@@ -12,9 +12,40 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
       relativePath: `${slug}.mdx`,
     });
 
+    const relativePath = `${slug}.mdx`;
+    let tripReportEdges: NonNullable<Awaited<ReturnType<typeof client.queries.tripReportListConnection>>['data']['tripReportConnection']['edges']> = [];
+    try {
+      const tripReports = await client.queries.tripReportListConnection({
+        sort: 'startDate',
+        first: 1000, // Get a large number to ensure we get all trip reports
+      });
+      tripReportEdges = (tripReports.data.tripReportConnection.edges || []).filter((edge) =>
+        edge?.node?.destinations?.some(
+          (destination) => destination?.route && typeof destination.route === 'object' && destination.route._sys?.relativePath === relativePath
+        )
+      );
+    } catch (error) {
+      console.error('Error fetching trip reports for route:', error);
+    }
+
+    let tripPlanEdges: NonNullable<Awaited<ReturnType<typeof client.queries.tripPlanListConnection>>['data']['tripPlanConnection']['edges']> = [];
+    try {
+      const tripPlans = await client.queries.tripPlanListConnection({
+        sort: 'startDate',
+        first: 1000, // Get a large number to ensure we get all trip plans
+      });
+      tripPlanEdges = (tripPlans.data.tripPlanConnection.edges || []).filter((edge) =>
+        edge?.node?.destinations?.some(
+          (destination) => destination?.route && typeof destination.route === 'object' && destination.route._sys?.relativePath === relativePath
+        )
+      );
+    } catch (error) {
+      console.error('Error fetching trip plans for route:', error);
+    }
+
     return (
       <Layout rawPageData={route.data}>
-        <RouteClientPage {...route} />
+        <RouteClientPage {...route} tripReports={tripReportEdges} tripPlans={tripPlanEdges} />
       </Layout>
     );
   } catch (error) {

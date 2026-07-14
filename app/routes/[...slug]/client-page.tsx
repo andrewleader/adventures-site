@@ -1,6 +1,6 @@
 'use client';
 
-import { RouteQuery, Route } from '@/tina/__generated__/types';
+import { RouteQuery, Route, TripReportListConnectionQuery, TripPlanListConnectionQuery } from '@/tina/__generated__/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
@@ -8,18 +8,30 @@ import { components } from '@/components/mdx-components';
 import { getRouteDifficultyText } from '@/components/route-difficulty';
 import { groupAdjacentImages } from '@/lib/markdown-image-gallery';
 
+type TripReportEdge = NonNullable<TripReportListConnectionQuery['tripReportConnection']['edges']>[number];
+type TripPlanEdge = NonNullable<TripPlanListConnectionQuery['tripPlanConnection']['edges']>[number];
+
 interface RouteClientPageProps {
   data: RouteQuery;
   variables: {
     relativePath: string;
   };
   query: string;
+  tripReports?: TripReportEdge[];
+  tripPlans?: TripPlanEdge[];
 }
 
-export default function RouteClientPage({ data, variables, query }: RouteClientPageProps) {
+export default function RouteClientPage({ data, variables, query, tripReports, tripPlans }: RouteClientPageProps) {
   const route = data.route as Route;
 
-
+  const formatDate = (dateString: string | null | undefined) => {
+    if (!dateString) return null;
+    try {
+      return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch {
+      return dateString;
+    }
+  };
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">
@@ -77,6 +89,60 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
             </Link>
           )}
         </div>
+
+        {/* Trip Reports for this route */}
+        {tripReports && tripReports.length > 0 && (
+          <div className="mt-6 p-4 bg-green-50 rounded-lg">
+            <h2 className="text-sm font-semibold text-green-800 uppercase tracking-wide mb-3">
+              📝 Trip Reports ({tripReports.length})
+            </h2>
+            <ul className="flex flex-col gap-2">
+              {tripReports.map((edge, index) => {
+                const report = edge?.node;
+                if (!report) return null;
+                const date = formatDate(report.startDate);
+                return (
+                  <li key={report._sys?.filename || index}>
+                    <Link
+                      href={`/trip-reports/${report._sys?.filename}`}
+                      className="flex items-center justify-between gap-4 px-3 py-2 bg-white rounded-md border border-green-100 hover:border-green-300 hover:shadow-sm transition-all group"
+                    >
+                      <span className="font-medium text-gray-900 group-hover:text-green-700">{report.title}</span>
+                      {date && <span className="text-sm text-gray-500 shrink-0">{date}</span>}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+
+        {/* Trip Plans for this route */}
+        {tripPlans && tripPlans.length > 0 && (
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <h2 className="text-sm font-semibold text-blue-800 uppercase tracking-wide mb-3">
+              🗓️ Trip Plans ({tripPlans.length})
+            </h2>
+            <ul className="flex flex-col gap-2">
+              {tripPlans.map((edge, index) => {
+                const plan = edge?.node;
+                if (!plan) return null;
+                const date = formatDate(plan.startDate);
+                return (
+                  <li key={plan._sys?.filename || index}>
+                    <Link
+                      href={`/trip-plans/${plan._sys?.filename}`}
+                      className="flex items-center justify-between gap-4 px-3 py-2 bg-white rounded-md border border-blue-100 hover:border-blue-300 hover:shadow-sm transition-all group"
+                    >
+                      <span className="font-medium text-gray-900 group-hover:text-blue-700">{plan.title}</span>
+                      {date && <span className="text-sm text-gray-500 shrink-0">{date}</span>}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </header>
 
       {/* Featured Image */}
