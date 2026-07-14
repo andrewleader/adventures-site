@@ -228,12 +228,6 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
           </div>
         )}
       </div>
-
-      {/* Swipe indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-xs opacity-50 text-center">
-        {images.length > 1 && <div>Swipe left/right to navigate</div>}
-        <div>Swipe down to close</div>
-      </div>
     </div>
   );
 };

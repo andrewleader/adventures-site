@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { getDisplayImageSrc } from '@/lib/images';
 
 interface ImageData {
   src: string;
@@ -117,11 +118,11 @@ export const useImageGallery = () => {
           processedRouteOverlays.add(routeOverlayContainer as HTMLElement);
           
           imageData.push({
-            src: baseImg.src,
+            src: getDisplayImageSrc(baseImg.src, true),
             alt: baseImg.alt || 'Route image with climbing route overlay',
             element: baseImg,
             type: 'route-overlay',
-            overlaySrc: overlayImg?.src
+            overlaySrc: overlayImg ? getDisplayImageSrc(overlayImg.src, true) : undefined
           });
           
           return; // Skip individual processing for RouteOverlay images
@@ -133,9 +134,10 @@ export const useImageGallery = () => {
         return;
       }
 
-      // Regular image
+      // Regular image — use the full-resolution large variant for the lightbox,
+      // even though the on-page thumbnail may be a smaller/cropped version.
       imageData.push({
-        src: img.src,
+        src: getDisplayImageSrc(img.src, true),
         alt: img.alt || '',
         element: img,
         type: 'normal'

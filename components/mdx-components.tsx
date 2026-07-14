@@ -7,6 +7,8 @@ import { Video } from './blocks/video';
 import { PageBlocksVideo } from '@/tina/__generated__/types';
 import { Mermaid } from './blocks/mermaid';
 import { RouteOverlay } from './route-overlay';
+import MarkdownImageGallery, { MarkdownImageData } from './markdown-image-gallery';
+import { getDisplayImageSrc } from '@/lib/images';
 
 export const components: Components<{
   BlockQuote: {
@@ -27,6 +29,9 @@ export const components: Components<{
     imageSrc: string;
     topoData?: string;
     topoOverlaySrc?: string;
+  };
+  gallery: {
+    images: MarkdownImageData[];
   };
 }> = {
   code_block: (props) => {
@@ -111,7 +116,7 @@ export const components: Components<{
     }
     return (
       <span className='flex items-center justify-center'>
-        <Image src={props.url} alt={props.alt || ''} width={500} height={500} />
+        <Image src={getDisplayImageSrc(props.url)} alt={props.alt || ''} width={500} height={500} />
       </span>
     );
   },
@@ -125,5 +130,8 @@ export const components: Components<{
     topoOverlaySrc?: string;
   }) => {
     return <RouteOverlay {...props} />;
+  },
+  gallery: (props: { images: MarkdownImageData[] }) => {
+    return <MarkdownImageGallery images={props.images} />;
   },
 };

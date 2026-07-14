@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { components } from '@/components/mdx-components';
 import { RouteCard } from '@/components/route-card';
+import { groupAdjacentImages } from '@/lib/markdown-image-gallery';
 
 interface AreaClientPageProps {
   data: AreaQuery;
@@ -97,7 +98,7 @@ export default function AreaClientPage({ data, variables, query, routesData }: A
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {area._body && <TinaMarkdown content={area._body} components={components} />}
+        {area._body && <TinaMarkdown content={groupAdjacentImages(area._body)} components={components} />}
       </div>
 
       {/* Routes in this Area */}

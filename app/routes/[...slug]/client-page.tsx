@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { components } from '@/components/mdx-components';
 import { getRouteDifficultyText } from '@/components/route-difficulty';
+import { groupAdjacentImages } from '@/lib/markdown-image-gallery';
 
 interface RouteClientPageProps {
   data: RouteQuery;
@@ -94,7 +95,7 @@ export default function RouteClientPage({ data, variables, query }: RouteClientP
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-        {route._body && <TinaMarkdown content={route._body} components={components} />}
+        {route._body && <TinaMarkdown content={groupAdjacentImages(route._body)} components={components} />}
       </div>
 
       {/* Quick Actions */}
