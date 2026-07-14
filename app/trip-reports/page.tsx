@@ -29,6 +29,7 @@ export default async function TripReportsPage() {
       </Layout>
     );
   } catch (error) {
+    console.error('Error fetching trip reports from TinaCMS:', error);
     return (
       <Layout>
         <div className="container mx-auto px-4 py-8">
