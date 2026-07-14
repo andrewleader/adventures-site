@@ -4,6 +4,7 @@ import { TripReport, TripReportConnection } from '@/tina/__generated__/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { formatDate } from '@/lib/format-date';
 
 interface TripReportsClientPageProps {
   data: {
@@ -43,15 +44,6 @@ export default function TripReportsClientPage({ data }: TripReportsClientPagePro
     const title = report.node.title?.toLowerCase() || '';
     return title.includes(searchTerm.toLowerCase());
   });
-
-  const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return null;
-    try {
-      return new Date(dateString).toLocaleDateString();
-    } catch {
-      return dateString;
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -100,10 +92,10 @@ export default function TripReportsClientPage({ data }: TripReportsClientPagePro
                 
                 <div className="space-y-1 text-sm text-gray-600 mb-3">
                   {reportData.startDate && (
-                    <p>📅 Start: {formatDate(reportData.startDate)}</p>
+                    <p>📅 Start: {formatDate(reportData.startDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</p>
                   )}
                   {reportData.endDate && (
-                    <p>📅 End: {formatDate(reportData.endDate)}</p>
+                    <p>📅 End: {formatDate(reportData.endDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</p>
                   )}
                   {reportData.destinations && reportData.destinations.length > 0 && (
                     <p>📍 {reportData.destinations.length} destination{reportData.destinations.length > 1 ? 's' : ''}</p>

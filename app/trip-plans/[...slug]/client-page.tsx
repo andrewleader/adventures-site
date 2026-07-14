@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { components } from '@/components/mdx-components';
 import { groupAdjacentImages } from '@/lib/markdown-image-gallery';
+import { formatDate } from '@/lib/format-date';
 
 interface TripPlanClientPageProps {
   data: TripPlanQuery;
@@ -17,15 +18,6 @@ interface TripPlanClientPageProps {
 
 export default function TripPlanClientPage({ data }: TripPlanClientPageProps) {
   const tripPlan = data.tripPlan as TripPlan;
-
-  const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return null;
-    try {
-      return new Date(dateString).toLocaleDateString();
-    } catch {
-      return dateString;
-    }
-  };
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">
@@ -40,10 +32,10 @@ export default function TripPlanClientPage({ data }: TripPlanClientPageProps) {
         
         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
           {tripPlan.startDate && (
-            <span>📅 Start: {formatDate(tripPlan.startDate)}</span>
+            <span>📅 Start: {formatDate(tripPlan.startDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</span>
           )}
           {tripPlan.endDate && (
-            <span>📅 End: {formatDate(tripPlan.endDate)}</span>
+            <span>📅 End: {formatDate(tripPlan.endDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</span>
           )}
           {tripPlan.destinations && tripPlan.destinations.length > 0 && (
             <span>

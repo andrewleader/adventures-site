@@ -7,6 +7,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { components } from '@/components/mdx-components';
 import { getRouteDifficultyText } from '@/components/route-difficulty';
 import { groupAdjacentImages } from '@/lib/markdown-image-gallery';
+import { formatDate } from '@/lib/format-date';
 
 type TripReportEdge = NonNullable<TripReportListConnectionQuery['tripReportConnection']['edges']>[number];
 type TripPlanEdge = NonNullable<TripPlanListConnectionQuery['tripPlanConnection']['edges']>[number];
@@ -23,15 +24,6 @@ interface RouteClientPageProps {
 
 export default function RouteClientPage({ data, variables, query, tripReports, tripPlans }: RouteClientPageProps) {
   const route = data.route as Route;
-
-  const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return null;
-    try {
-      return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    } catch {
-      return dateString;
-    }
-  };
 
   return (
     <article className="container mx-auto px-4 py-8 max-w-4xl">

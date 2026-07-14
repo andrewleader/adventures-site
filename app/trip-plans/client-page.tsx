@@ -4,6 +4,7 @@ import { TripPlan, TripPlanConnection } from '@/tina/__generated__/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { formatDate } from '@/lib/format-date';
 
 interface TripPlansClientPageProps {
   data: {
@@ -43,15 +44,6 @@ export default function TripPlansClientPage({ data }: TripPlansClientPageProps) 
     const title = plan.node.title?.toLowerCase() || '';
     return title.includes(searchTerm.toLowerCase());
   });
-
-  const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return null;
-    try {
-      return new Date(dateString).toLocaleDateString();
-    } catch {
-      return dateString;
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -100,10 +92,10 @@ export default function TripPlansClientPage({ data }: TripPlansClientPageProps) 
                 
                 <div className="space-y-1 text-sm text-gray-600 mb-3">
                   {planData.startDate && (
-                    <p>📅 Start: {formatDate(planData.startDate)}</p>
+                    <p>📅 Start: {formatDate(planData.startDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</p>
                   )}
                   {planData.endDate && (
-                    <p>📅 End: {formatDate(planData.endDate)}</p>
+                    <p>📅 End: {formatDate(planData.endDate, { year: 'numeric', month: 'numeric', day: 'numeric' })}</p>
                   )}
                   {planData.destinations && planData.destinations.length > 0 && (
                     <p>📍 {planData.destinations.length} destination{planData.destinations.length > 1 ? 's' : ''}</p>
