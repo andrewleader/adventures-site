@@ -20,9 +20,15 @@ query pageQuery {
   }
 }
 
-query routeListConnection($sort: String, $first: Float, $filter: RouteFilter) {
-  routeConnection(sort: $sort, first: $first, filter: $filter) {
+query routeListConnection($sort: String, $first: Float, $after: String, $filter: RouteFilter) {
+  routeConnection(sort: $sort, first: $first, after: $after, filter: $filter) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
     edges {
+      cursor
       node {
         id
         title

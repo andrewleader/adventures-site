@@ -1,46 +1,21 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { RouteListConnectionQuery } from '@/tina/__generated__/types';
-import { client } from '@/tina/__generated__/client';
 import RoutesClientPage from './client-page';
 
-export default function RoutesClientPageWrapper() {
-  const [data, setData] = useState<RouteListConnectionQuery | null>(null);
-  const [loading, setLoading] = useState(true);
+interface RoutesClientPageWrapperProps {
+  initialData: RouteListConnectionQuery;
+}
+
+export default function RoutesClientPageWrapper({ initialData }: RoutesClientPageWrapperProps) {
+  const [data, setData] = useState<RouteListConnectionQuery | null>(initialData);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchRoutes = async () => {
-      try {
-        setLoading(true);
-        const routes = await client.queries.routeListConnection({
-          sort: 'title',
-          first: 1000, // Get a large number to ensure we get all routes
-        });
-        setData(routes.data);
-      } catch (err) {
-        console.error('Error loading routes:', err);
-        setError('Failed to load routes. Please try refreshing the page.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRoutes();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8">Climbing & Hiking Routes</h1>
-        <div className="flex items-center gap-3">
-          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-500"></div>
-          <p>Loading routes...</p>
-        </div>
-      </div>
-    );
-  }
+    setData(initialData);
+    setError(null);
+  }, [initialData]);
 
   if (error) {
     return (

@@ -1,12 +1,18 @@
 import Layout from '@/components/layout/layout';
+import client from '@/tina/__generated__/client';
 import RoutesClientPageWrapper from './client-page-wrapper';
 
 export const revalidate = 300;
 
-export default function RoutesPage() {
+export default async function RoutesPage() {
+  const routes = await client.queries.routeListConnection({
+    sort: 'title',
+    first: 24,
+  });
+
   return (
     <Layout>
-      <RoutesClientPageWrapper />
+      <RoutesClientPageWrapper initialData={routes.data} />
     </Layout>
   );
 }
