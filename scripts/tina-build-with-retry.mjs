@@ -11,6 +11,33 @@ const retryableMessages = [
 
 const sleep = (durationMs) => new Promise((resolve) => setTimeout(resolve, durationMs));
 
+const refreshTinaCloudSchema = async () => {
+  const clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
+  const branch = process.env.NEXT_PUBLIC_TINA_BRANCH;
+  const token = process.env.TINA_TOKEN;
+
+  if (!clientId || !branch || !token) {
+    console.log('Skipping TinaCloud schema refresh because TinaCloud environment variables are not fully configured.');
+    return;
+  }
+
+  const url = new URL(`https://content.tinajs.io/db/${encodeURIComponent(clientId)}/reset/${encodeURIComponent(branch)}`);
+  url.searchParams.set('refreshSchema', 'true');
+
+  console.log(`Requesting TinaCloud schema refresh for branch '${branch}'...`);
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'X-API-KEY': token,
+    },
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`TinaCloud schema refresh failed with ${response.status}: ${body}`);
+  }
+};
+
 const runTinaBuild = () => new Promise((resolve) => {
   const child = spawn('tinacms', ['build'], {
     shell: true,
@@ -38,6 +65,7 @@ const runTinaBuild = () => new Promise((resolve) => {
 });
 
 for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+  await refreshTinaCloudSchema();
   const result = await runTinaBuild();
 
   if (result.exitCode === 0) {
