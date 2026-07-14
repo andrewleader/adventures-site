@@ -34,8 +34,22 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
 
 export async function generateStaticParams() {
   try {
-    const areas = await client.queries.areaConnection();
-    return areas.data.areaConnection.edges?.map((area) => ({
+    let areas = await client.queries.areaConnection();
+    const allAreas = areas;
+
+    while (areas.data.areaConnection.pageInfo.hasNextPage) {
+      areas = await client.queries.areaConnection({
+        after: areas.data.areaConnection.pageInfo.endCursor,
+      });
+
+      if (!areas.data.areaConnection.edges) {
+        break;
+      }
+
+      allAreas.data.areaConnection.edges!.push(...areas.data.areaConnection.edges);
+    }
+
+    return allAreas.data.areaConnection.edges?.map((area) => ({
       slug: area?.node?._sys.breadcrumbs || [],
     })) || [];
   } catch {

@@ -24,8 +24,22 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
 
 export async function generateStaticParams() {
   try {
-    const routes = await client.queries.routeConnection();
-    return routes.data.routeConnection.edges?.map((route) => ({
+    let routes = await client.queries.routeConnection();
+    const allRoutes = routes;
+
+    while (routes.data.routeConnection.pageInfo.hasNextPage) {
+      routes = await client.queries.routeConnection({
+        after: routes.data.routeConnection.pageInfo.endCursor,
+      });
+
+      if (!routes.data.routeConnection.edges) {
+        break;
+      }
+
+      allRoutes.data.routeConnection.edges!.push(...routes.data.routeConnection.edges);
+    }
+
+    return allRoutes.data.routeConnection.edges?.map((route) => ({
       slug: route?.node?._sys.breadcrumbs || [],
     })) || [];
   } catch {
