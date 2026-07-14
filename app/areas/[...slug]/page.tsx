@@ -8,14 +8,19 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
   const slug = slugArray.join('/');
   
   try {
-    const [area, routes] = await Promise.all([
-      client.queries.area({
-        relativePath: `${slug}.mdx`,
-      }),
-      client.queries.routeConnection({
-        first: 1000  // Fetch up to 1000 routes instead of the default 50
-      })
-    ]);
+    const area = await client.queries.area({
+      relativePath: `${slug}.mdx`,
+    });
+
+    const routes = await client.queries.routeConnection({
+      filter: {
+        parentArea: {
+          area: {
+            title: { eq: area.data.area.title },
+          },
+        },
+      },
+    });
 
     return (
       <Layout rawPageData={area.data}>
