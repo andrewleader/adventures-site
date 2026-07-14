@@ -19,6 +19,15 @@ const Route: Collection = {
       required: true,
     },
     {
+      type: 'datetime',
+      label: 'Posted Date',
+      name: 'date',
+      ui: {
+        dateFormat: 'MMMM DD YYYY',
+        timeFormat: 'hh:mm A',
+      },
+    },
+    {
       type: 'image',
       name: 'featuredImage',
       label: 'Featured Image',

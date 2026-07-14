@@ -6,8 +6,8 @@ export const revalidate = 300;
 
 export default async function RoutesPage() {
   const routes = await client.queries.routeListConnection({
-    sort: 'title',
-    first: 24,
+    sort: 'date',
+    last: 24,
   });
 
   return (

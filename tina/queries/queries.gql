@@ -20,10 +20,12 @@ query pageQuery {
   }
 }
 
-query routeListConnection($sort: String, $first: Float, $after: String, $filter: RouteFilter) {
-  routeConnection(sort: $sort, first: $first, after: $after, filter: $filter) {
+query routeListConnection($sort: String, $first: Float, $after: String, $last: Float, $before: String, $filter: RouteFilter) {
+  routeConnection(sort: $sort, first: $first, after: $after, last: $last, before: $before, filter: $filter) {
     pageInfo {
+      hasPreviousPage
       hasNextPage
+      startCursor
       endCursor
     }
     totalCount
@@ -32,6 +34,7 @@ query routeListConnection($sort: String, $first: Float, $after: String, $filter:
       node {
         id
         title
+        date
         featuredImage
         miles
         gain

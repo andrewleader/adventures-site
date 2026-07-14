@@ -48,8 +48,8 @@ export default function RoutesClientPage({ data }: RoutesClientPageProps) {
         setLoading(true);
         setError(null);
         const routes = await client.queries.routeListConnection({
-          sort: 'title',
-          first: PAGE_SIZE,
+          sort: 'date',
+          last: PAGE_SIZE,
           filter: buildFilter(),
         });
 
@@ -80,15 +80,15 @@ export default function RoutesClientPage({ data }: RoutesClientPageProps) {
   const pageInfo = routesData.routeConnection.pageInfo;
 
   const loadMoreRoutes = async () => {
-    if (!pageInfo.hasNextPage || loadingMore) return;
+    if (!pageInfo.hasPreviousPage || loadingMore) return;
 
     try {
       setLoadingMore(true);
       setError(null);
       const nextRoutes = await client.queries.routeListConnection({
-        sort: 'title',
-        first: PAGE_SIZE,
-        after: pageInfo.endCursor,
+        sort: 'date',
+        last: PAGE_SIZE,
+        before: pageInfo.startCursor,
         filter: buildFilter(),
       });
 
@@ -174,7 +174,7 @@ export default function RoutesClientPage({ data }: RoutesClientPageProps) {
         })}
       </div>
 
-      {pageInfo.hasNextPage && (
+      {pageInfo.hasPreviousPage && (
         <div className="mt-8 flex justify-center">
           <button
             type="button"

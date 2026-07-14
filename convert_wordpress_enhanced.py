@@ -757,6 +757,7 @@ def process_wordpress_xml_enhanced():
                 
             route_data = {
                 'title': title,
+                'date': date_part,
                 'featuredImage': featured_image_url,
                 'miles': custom_fields.get('miles'),
                 'gain': custom_fields.get('gain'),
