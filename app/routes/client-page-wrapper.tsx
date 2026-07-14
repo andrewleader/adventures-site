@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { RouteConnectionQuery } from '@/tina/__generated__/types';
+import { RouteListConnectionQuery } from '@/tina/__generated__/types';
 import { client } from '@/tina/__generated__/client';
 import RoutesClientPage from './client-page';
 
 export default function RoutesClientPageWrapper() {
-  const [data, setData] = useState<RouteConnectionQuery | null>(null);
+  const [data, setData] = useState<RouteListConnectionQuery | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +14,7 @@ export default function RoutesClientPageWrapper() {
     const fetchRoutes = async () => {
       try {
         setLoading(true);
-        const routes = await client.queries.routeConnection({
+        const routes = await client.queries.routeListConnection({
           sort: 'title',
           first: 1000, // Get a large number to ensure we get all routes
         });

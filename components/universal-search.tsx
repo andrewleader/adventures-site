@@ -81,9 +81,9 @@ export default function UniversalSearch({ className = '' }: UniversalSearchProps
       // Fetch all content types using Tina client
       const [areasResponse, routesResponse, plansResponse, reportsResponse] = await Promise.all([
         client.queries.areaConnection(),
-        client.queries.routeConnection(),
+        client.queries.routeListConnection(),
         client.queries.tripPlanConnection(),
-        client.queries.tripReportConnection(),
+        client.queries.tripReportListConnection(),
       ]);
 
       const areas = areasResponse.data.areaConnection.edges?.map(edge => edge?.node) || [];

@@ -1,11 +1,11 @@
 'use client';
 
-import { Route, RouteConnectionQuery } from '@/tina/__generated__/types';
+import { Route, RouteListConnectionQuery } from '@/tina/__generated__/types';
 import { useState } from 'react';
 import { RouteCard } from '@/components/route-card';
 
 interface RoutesClientPageProps {
-  data: RouteConnectionQuery;
+  data: RouteListConnectionQuery;
 }
 
 export default function RoutesClientPage({ data }: RoutesClientPageProps) {
