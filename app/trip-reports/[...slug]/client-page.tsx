@@ -44,8 +44,29 @@ export default function TripReportClientPage({ data }: TripReportClientPageProps
           {tripReport.endDate && (
             <span>📅 End: {formatDate(tripReport.endDate)}</span>
           )}
-          {tripReport.destinations && (
-            <span>📍 {tripReport.destinations.length} destination{tripReport.destinations.length > 1 ? 's' : ''}</span>
+          {tripReport.destinations && tripReport.destinations.length > 0 && (
+            <span>
+              📍{' '}
+              {tripReport.destinations.map((dest, index) => {
+                const route = dest?.route;
+                const title = typeof route === 'object' && route?.title ? route.title : null;
+                const slug = typeof route === 'object' && route?._sys?.breadcrumbs
+                  ? (route._sys.breadcrumbs as string[]).join('/')
+                  : null;
+                return (
+                  <span key={index}>
+                    {index > 0 && ', '}
+                    {title && slug ? (
+                      <Link href={`/routes/${slug}`} className="text-green-600 hover:text-green-700 hover:underline">
+                        {title}
+                      </Link>
+                    ) : (
+                      title || 'Unknown'
+                    )}
+                  </span>
+                );
+              })}
+            </span>
           )}
         </div>
 
@@ -78,26 +99,7 @@ export default function TripReportClientPage({ data }: TripReportClientPageProps
         {tripReport._body && <TinaMarkdown content={tripReport._body} components={components} />}
       </div>
 
-      {tripReport.destinations && tripReport.destinations.length > 0 && (
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4">Destinations Visited</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            {tripReport.destinations.map((dest, index) => {
-              if (!dest) return null;
-              
-              return (
-                <div key={index} className="p-4 bg-white rounded-lg border">
-                  <h4 className="font-semibold">
-                    {typeof dest.route === 'object' && dest.route?.title 
-                      ? dest.route.title 
-                      : 'Route'}
-                  </h4>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
+
     </article>
   );
 }
