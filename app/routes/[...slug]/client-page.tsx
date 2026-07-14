@@ -159,6 +159,21 @@ export default function RouteClientPage({ data, variables, query, tripReports, t
         </div>
       )}
 
+      {/* CalTopo Map */}
+      {route.calTopoUrl && (
+        <div className="mb-8 rounded-lg overflow-hidden border">
+          <iframe
+            width="100%"
+            height="500"
+            src={route.calTopoUrl}
+            title="CalTopo Map"
+            loading="lazy"
+          >
+            <a href={route.calTopoUrl} target="_blank" rel="noopener noreferrer">View map</a>
+          </iframe>
+        </div>
+      )}
+
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {route._body && <TinaMarkdown content={groupAdjacentImages(route._body)} components={components} />}
@@ -168,17 +183,6 @@ export default function RouteClientPage({ data, variables, query, tripReports, t
       <div className="mt-12 p-6 bg-gray-50 rounded-lg">
         <h3 className="text-xl font-semibold mb-4">Resources</h3>
         <div className="flex flex-wrap gap-4">
-          {route.calTopoUrl && (
-            <a
-              href={route.calTopoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              🗺️ CalTopo Map
-            </a>
-          )}
-          
           {route.gpxFile && (
             <a
               href={route.gpxFile}
