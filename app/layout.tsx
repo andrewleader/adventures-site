@@ -26,7 +26,10 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Andrew's Adventures - Climbs and Hikes",
+  title: {
+    default: "Andrew's Adventures - Climbs and Hikes",
+    template: "%s | Andrew's Adventures",
+  },
   description: "Discover climbing routes, hiking trails, and outdoor adventures with detailed trip reports and area information.",
 };
 

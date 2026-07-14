@@ -1,7 +1,36 @@
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
+import type { Metadata } from 'next';
 import Layout from '@/components/layout/layout';
 import client from '@/tina/__generated__/client';
 import TripPlanClientPage from './client-page';
+
+const getTripPlan = cache(async (relativePath: string) => client.queries.tripPlan({ relativePath }));
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join('/');
+
+  try {
+    const { data } = await getTripPlan(`${slug}.mdx`);
+    const tripPlan = data.tripPlan;
+
+    const destinationTitles = (tripPlan.destinations || [])
+      .map((destination) => (destination?.route && typeof destination.route === 'object' ? destination.route.title : null))
+      .filter(Boolean);
+
+    const description = destinationTitles.length > 0
+      ? `Trip plan for ${destinationTitles.join(', ')}.`
+      : `Trip plan: ${tripPlan.title}.`;
+
+    return {
+      title: `${tripPlan.title} | Trip Plan`,
+      description,
+    };
+  } catch {
+    return {};
+  }
+}
 
 export async function generateStaticParams() {
   // For static builds, we'll generate params based on the filesystem
@@ -29,9 +58,7 @@ export default async function TripPlanPage({ params }: { params: Promise<{ slug:
   const slug = slugArray.join('/');
   
   try {
-    const tripPlan = await client.queries.tripPlan({
-      relativePath: `${slug}.mdx`,
-    });
+    const tripPlan = await getTripPlan(`${slug}.mdx`);
 
     return (
       <Layout rawPageData={tripPlan.data}>
