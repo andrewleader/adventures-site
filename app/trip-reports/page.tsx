@@ -6,7 +6,7 @@ export const revalidate = 300;
 
 export default async function TripReportsPage() {
   try {
-    let tripReports = await client.queries.tripReportConnection({
+    let tripReports = await client.queries.tripReportListConnection({
       sort: 'title',
       first: 1000, // Get a large number to ensure we get all trip reports
     });

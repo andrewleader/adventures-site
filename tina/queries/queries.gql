@@ -20,6 +20,70 @@ query pageQuery {
   }
 }
 
+query routeListConnection($sort: String, $first: Float, $filter: RouteFilter) {
+  routeConnection(sort: $sort, first: $first, filter: $filter) {
+    edges {
+      node {
+        id
+        title
+        featuredImage
+        miles
+        gain
+        highestElevation
+        classRating
+        ydsRating
+        ydsSubRating
+        pitches
+        summitCoords
+        parentArea {
+          ... on Area {
+            title
+            _sys {
+              filename
+            }
+          }
+        }
+        _sys {
+          filename
+          basename
+          relativePath
+          breadcrumbs
+        }
+      }
+    }
+  }
+}
+
+query tripReportListConnection($sort: String, $first: Float, $filter: TripReportFilter) {
+  tripReportConnection(sort: $sort, first: $first, filter: $filter) {
+    edges {
+      node {
+        id
+        title
+        featuredImage
+        startDate
+        endDate
+        destinations {
+          route {
+            ... on Route {
+              title
+            }
+          }
+        }
+        tripPlan {
+          ... on TripPlan {
+            title
+          }
+        }
+        _sys {
+          filename
+          basename
+        }
+      }
+    }
+  }
+}
+
 query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
   page(relativePath: $relativePath) {

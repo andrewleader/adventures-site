@@ -1,13 +1,13 @@
 'use client';
 
-import { Area, AreaConnectionQuery, Route, RouteConnectionQuery } from '@/tina/__generated__/types';
+import { Area, AreaConnectionQuery, Route, RouteListConnectionQuery } from '@/tina/__generated__/types';
 import { useState, useEffect, useCallback } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { getRouteDifficultyText } from '@/components/route-difficulty';
 
 interface MapClientPageProps {
   areasData: AreaConnectionQuery;
-  routesData: RouteConnectionQuery;
+  routesData: RouteListConnectionQuery;
 }
 
 interface LocationData {
