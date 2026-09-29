@@ -31,6 +31,10 @@
       {
         "href": "/map",
         "label": "Map"
+      },
+      {
+        "href": "/posts",
+        "label": "Blog"
       }
     ]
   },
